@@ -1,0 +1,692 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"col-md-",
+				"col-md-offset-1"
+			],
+			[
+				"panel",
+				"panel-default"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"innerHT",
+				"innerHTML"
+			],
+			[
+				"_",
+				"_SESSION"
+			],
+			[
+				"bca",
+				"background-color"
+			],
+			[
+				"date_defaul",
+				"date_default_timezone_set"
+			],
+			[
+				"date_time_",
+				"date_timezone_set"
+			],
+			[
+				"nombre",
+				"nombre"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"pie",
+				"pie"
+			],
+			[
+				"remov",
+				"removeClass"
+			],
+			[
+				"in",
+				"integrantes"
+			],
+			[
+				"agrega",
+				"agregarTarea"
+			],
+			[
+				"check",
+				"checkbox"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"list-sty",
+				"list-style-image"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.php",
+			"settings":
+			{
+				"buffer_size": 1375,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "paneloperador.php",
+			"settings":
+			{
+				"buffer_size": 2066,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "paneloperador.php"
+			}
+		},
+		{
+			"file": "assets/css/style.css",
+			"settings":
+			{
+				"buffer_size": 30,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "style.css"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sitios/tareas/tareas.php",
+			"settings":
+			{
+				"buffer_size": 3287,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp64/www/mis_sitios/tareas/css/estilo.css",
+			"settings":
+			{
+				"buffer_size": 70,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "bs3-tan",
+		"selected_items":
+		[
+			[
+				"bs3-tan",
+				"Snippet: bs3-table-responsive"
+			],
+			[
+				"bs3-htm",
+				"Snippet: bs3-html5-template"
+			],
+			[
+				"bs3-fo",
+				"Snippet: bs3-form"
+			],
+			[
+				"bs3-form",
+				"Snippet: bs3-form-horizontal"
+			],
+			[
+				"bs",
+				"Snippet: bs3-panel-success"
+			],
+			[
+				"bs3-",
+				"Snippet: bs3-col"
+			],
+			[
+				"bs3-html",
+				"Snippet: bs3-html5-template"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"bs3-for",
+				"Snippet: bs3-form"
+			],
+			[
+				"bs3-nav",
+				"Snippet: bs3-navbar-responsive"
+			],
+			[
+				"bs3-panel",
+				"Snippet: bs3-panel-warning"
+			],
+			[
+				"control",
+				"Package Control: Install Package"
+			],
+			[
+				"bs3-pane",
+				"Snippet: bs3-panel"
+			],
+			[
+				"bs3-pan",
+				"Snippet: bs3-panel-success"
+			],
+			[
+				"bs3-htl",
+				"Snippet: bs3-html5-template"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"bs3html",
+				"Snippet: bs3-html5-template"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"bs3-templa",
+				"Snippet: bs3-html5-template"
+			],
+			[
+				"bs3-fixe",
+				"Snippet: bs3-navbar-fixed-bottom"
+			],
+			[
+				"bs3-panel-foo",
+				"Snippet: bs3-panel-footer"
+			],
+			[
+				"bs3-panel-f",
+				"Snippet: bs3-panel-footer"
+			],
+			[
+				"bs3-alig",
+				"Snippet: bs3-pager-aligned"
+			],
+			[
+				"bs3-foote",
+				"Snippet: bs3-panel-footer"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/wamp64/www/mis_sitios/Trabajo_Final_Admin_Recursos",
+		"/C/wamp64/www/mis_sitios/Trabajo_Final_Admin_Recursos/View",
+		"/C/wamp64/www/mis_sitios/Trabajo_Final_Admin_Recursos/View/assets",
+		"/C/wamp64/www/mis_sitios/Trabajo_Final_Admin_Recursos/View/assets/js"
+	],
+	"file_history":
+	[
+		"/C/wamp/www/sitios/tareas/login.php",
+		"/C/Users/pablo/Documents/Apuntes Facultad/WEB/TP 1 - solucion/solucion/js/script.js",
+		"/C/wamp64/www/mis_sitios/Sistema_de_Gestion_de_Cambios/View/main.php",
+		"/C/wamp64/www/mis_sitios/Sistema_de_Gestion_de_Cambios/Model/Categoria.php",
+		"/C/wamp64/bin/apache/apache2.4.23/conf/httpd.conf",
+		"/C/wamp64/www/mis sitios/Sistema de Gestion de Cambios/View/main.php",
+		"/C/Program Files (x86)/Counter-Strike 1.6/cstrike/server.cfg",
+		"/C/Users/pablo/Downloads/Patron Singleton/Patron Singleton/src/singleton/ClaseLogSingleton.java",
+		"/C/Users/pablo/Documents/Apuntes Facultad/Ingenieria de Software/BusService.xml",
+		"/C/Program Files (x86)/Counter-Strike 1.6/cstrike/config.cfg",
+		"/C/Program Files (x86)/Counter-Strike 1.6/cstrike/listenserver.cfg",
+		"/C/Program Files (x86)/Counter-Strike 1.6/cstrike/GameServerConfig.vdf",
+		"/C/Program Files (x86)/Counter-Strike 1.6/platform/config/MasterServers.vdf",
+		"/C/Program Files (x86)/Counter-Strike 1.6/cstrike/violence.cfg",
+		"/C/Program Files (x86)/Counter-Strike 1.6/platform/config/__MasterServers.vdf",
+		"/C/Program Files (x86)/Counter-Strike 1.6/platform/config/ServerBrowser.vdf",
+		"/C/wamp/www/sitios/adptlvl/bootstrap/autoload.php",
+		"/C/wamp/www/sitios/adptlvl/bootstrap/app.php",
+		"//192.168.1.110/FlexxusERP/NORTEGOMAS/e-learning/contacto.php",
+		"/C/Users/pablo/Downloads/config.jsp",
+		"/C/Users/pablo/Downloads/JSoup/JSoup/app/src/main/java/com/tucode/josdan/jsoup/MenuAlumno.java",
+		"/C/Users/pablo/AndroidStudioProjects/VentasRodisa/app/src/main/java/pablo/ventasrodisa/MainActivity.java",
+		"/C/Users/pablo/AndroidStudioProjects/VentasRodisa/app/src/main/java/pablo/ventasrodisa/NuevoProducto.java",
+		"/C/Users/pablo/Documents/NetBeansProjects/SysAcad/src/Model/Sesion.java",
+		"/C/Users/pablo/Documents/NetBeansProjects/SysAcad/src/Model/Alumno.java",
+		"/C/Users/pablo/Documents/NetBeansProjects/SysAcad/src/sysacad/SysAcad.java",
+		"/C/Users/pablo/Downloads/JSoup/JSoup/app/src/main/java/com/tucode/josdan/jsoup/MainActivity.java",
+		"/C/Users/pablo/AndroidStudioProjects/VentasRodisa/app/src/main/java/Controller/ControllerFacturar.java",
+		"/C/Users/pablo/AndroidStudioProjects/VentasRodisa/app/src/main/java/Controller/ControllerABM.java",
+		"/C/Users/pablo/Downloads/PatronMVC/PatronMVC/src/controlador/Principal.java",
+		"/C/Users/pablo/Downloads/PatronMVC/PatronMVC/src/vista/VentanaPrincipal.java",
+		"/C/wamp/www/sitios/adptlvl/public/index.php",
+		"/C/Users/pablo/Documents/NetBeansProjects/GestionDrugstore/src/View/ManageProduct.java",
+		"/C/Users/pablo/Downloads/PatronMVC/PatronMVC/src/controlador/Coordinador.java",
+		"/C/wamp/www/sitios/admRec/index.php",
+		"/C/wamp/www/sitios/admRecv2/index.html",
+		"/C/wamp/www/sitios/admRecv2/contact.html",
+		"/C/wamp/www/sitios/admRecv2/about.html",
+		"/C/wamp/www/sitios/admRecv2/mail/contact_me.php",
+		"/C/wamp/www/sitios/admRecv2/css/clean-blog.css",
+		"/C/wamp/www/sitios/admRecv2/less/clean-blog.less",
+		"/C/wamp/www/sitios/admRecv2/css/clean-blog.min.css",
+		"/C/wamp/www/sitios/admRecv2/less/variables.less",
+		"/C/wamp/www/sitios/admRecv2/less/mixins.less",
+		"/C/wamp/www/sitios/admRecv2/admin/alta_info_empresa.php",
+		"/C/wamp/www/sitios/admRecv2/js/clean-blog.min.js",
+		"/C/wamp/www/sitios/admRecv2/js/clean-blog.js",
+		"/C/wamp/www/sitios/admRecv2/LICENSE",
+		"/C/wamp/www/sitios/admRecv2/post.html",
+		"/C/wamp/www/sitios/admRec/index.html",
+		"/C/wamp/www/sitios/admRec/css/clean-blog.css",
+		"/C/Users/pablo/Documents/Apuntes Facultad/WEB/pruebas/lucky_sevens/js/lucky_script.js",
+		"/C/Users/pablo/Documents/Apuntes Facultad/WEB/pruebas/lucky_sevens/lucky_sevens.html",
+		"/C/Users/pablo/Documents/Apuntes Facultad/WEB/trabajo practico 1 (Daniel)/index.html",
+		"/C/wamp/www/sitios/tareas/actualizartareas.php",
+		"/C/wamp/www/sitios/sesion/index.php",
+		"/C/wamp/www/sitios/admProyApp/admProyApp/bootstrap/autoload.php",
+		"/C/wamp/www/sitios/admProyApp/admProyApp/bootstrap/app.php",
+		"/C/Users/pablo/Documents/Camtasia Studio/perros/perros.html",
+		"/C/Users/pablo/Documents/Apuntes Facultad/WEB/pruebas/divisors/lucky_sevens.html",
+		"/C/Users/pablo/Documents/Apuntes Facultad/WEB/pruebas/divisors/divisors_in_a_range.html",
+		"/C/wamp/www/sitios/tareas/tareas.php",
+		"/C/Users/pablo/AppData/Local/Temp/Rar$DIa0.900/AboutDialog.java",
+		"/C/Users/pablo/AppData/Local/Temp/Rar$DIa0.367/R.java",
+		"/C/Users/pablo/AppData/Local/Temp/Rar$DIa0.970/Dashboard.java",
+		"/C/Users/pablo/AppData/Local/Temp/Rar$DIa0.746/R$id.java",
+		"/C/Users/pablo/AppData/Local/Temp/Rar$DIa0.664/AboutDialog.java",
+		"/C/Users/pablo/AppData/Local/Temp/Rar$DIa0.705/DatabaseUtilsCompat.java",
+		"/C/wamp/www/sitios/tareas/borrartarea.php",
+		"/C/wamp/www/sitios/tareas/agregartarea.php",
+		"/C/wamp/www/sitios/tareas/lib/conexion.php",
+		"/C/wamp/www/sitios/tareas/css/estilo.css",
+		"/C/wamp/www/sitios/tareas/index.php",
+		"/C/wamp/www/sitios/tareas/logout.php",
+		"/C/wamp/www/sitios/chat/lib/conexionDB.php",
+		"/C/wamp/www/sitios/chat/sala.php",
+		"/C/wamp/www/sitios/chat/login.php",
+		"/C/wamp/www/sitios/tareas/prueba.html",
+		"/C/wamp/www/sitios/sesion/lib/conexion.php",
+		"/C/wamp/www/sitios/sesion/agregartarea.php",
+		"/C/wamp/www/sitios/chat/index.php",
+		"/C/wamp/www/sitios/chat/css/estilos.css",
+		"/C/Users/pablo/Documents/Apuntes Facultad/WEB/clase8/clase8/logout.php",
+		"/C/Users/pablo/Documents/Apuntes Facultad/WEB/clase8/clase8/login.php",
+		"/C/Users/pablo/Documents/Apuntes Facultad/WEB/clase8/clase8/index.php",
+		"/C/Users/pablo/Documents/Apuntes Facultad/WEB/clase8/clase8/index2.php",
+		"/C/wamp/www/sitios/sesion/css/estilos.css",
+		"/C/wamp/www/sitios/sesion/borrartodo.php",
+		"/C/wamp/www/sitios/sesion/borrartarea.php",
+		"/C/wamp/www/sitios/sesion/js/redirect.js",
+		"/C/Users/pablo/Documents/Apuntes Facultad/WEB/trabajo-practico-1/trabajo practico 1/js/script.js",
+		"/C/wamp/www/sitios/sesion/prueba.php",
+		"/C/Users/pablo/Documents/Apuntes Facultad/WEB/pruebas/animaciones/animacion.html",
+		"/C/Users/pablo/Documents/Apuntes Facultad/WEB/pruebas/animaciones/js/animar.js",
+		"/C/wamp/www/sitios/prueba.php",
+		"/C/Users/pablo/Documents/Apuntes Facultad/WEB/pruebas/animaciones/index.html",
+		"/C/Users/pablo/Documents/Apuntes Facultad/WEB/pruebas/animaciones/js/script.js",
+		"/C/Users/pablo/Documents/Apuntes Facultad/WEB/trabajo-practico-1/trabajo practico 1/index.html",
+		"/C/Users/pablo/Documents/Apuntes Facultad/WEB/trabajo-practico-1/trabajo practico 1/css/estilo.css",
+		"/C/Users/pablo/AppData/Local/Temp/Rar$EXa0.299/trabajo practico 1/index.html",
+		"/C/Users/pablo/AppData/Local/Temp/Rar$EXa0.389/trabajo practico 1/index.html",
+		"/G/sitios web/ejercicios_libros_web/ejercicio15/index.html",
+		"/G/sitios web/ejercicios_libros_web/ejercicio15/js/script.js",
+		"/C/Users/pablo/Documents/Mis Sitios Web/Sitio de Prueba/index.html",
+		"/C/Users/pablo/Documents/Mis Sitios Web/Sitio de Prueba/css/estilos.css",
+		"/C/Users/pablo/Documents/Mis Sitios Web/Sitio de Prueba/estilos.css",
+		"/C/Users/pablo/Documents/Mis Sitios Web/Sitio de Prueba/test.html"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"188.212.103.99:27015",
+			"connect",
+			"if (e.getSource().equals(this.view.getBtnRefresh())) {\n            this.view.cleanTableModelProduct();\n            this.view.getBtnLeftArrow().setEnabled(false);\n            this.view.getBtnRightArrow().setEnabled(false);\n            this.view.getTxtSearchL().setText(\"\");\n            this.view.getLblCountPages().setText(\"0\");\n            this.view.getTxtSearchL().requestFocusInWindow();\n        }\n        if (e.getSource().equals(this.view.getBtnRightArrow())) {\n            int countPages = Integer.parseInt(this.view.getLblCountPages().getText());\n            countPages++;\n            if (countPages == 0) {\n                this.view.getBtnLeftArrow().setEnabled(false);\n            }\n            this.listProducts(countPages);\n            this.view.getLblCountPages().setText(Integer.toString(countPages));\n            this.view.getBtnLeftArrow().setEnabled(true);\n        }\n        if (e.getSource().equals(this.view.getBtnLeftArrow())) {\n            int countPages = Integer.parseInt(this.view.getLblCountPages().getText());\n            countPages--;\n            if (countPages == 0) {\n                this.view.getBtnLeftArrow().setEnabled(false);\n            }\n            this.listProducts(countPages);\n            this.view.getLblCountPages().setText(Integer.toString(countPages));\n        }",
+			"register",
+			"list",
+			"getbtndel",
+			"registerlisteners",
+			"savepr",
+			"action",
+			"version",
+			"Montserrat",
+			"lora",
+			"Montserrat",
+			"Lora",
+			"Your message has been sent",
+			"php",
+			"=\"\">\n",
+			"2016",
+			"THE FINAL",
+			"start bo",
+			"fff",
+			"  ",
+			" =",
+			">\n",
+			"input",
+			"6",
+			"left",
+			"\">\n",
+			"php",
+			"slideUp"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Lora",
+			"Montserrat"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1375,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1142,
+								1357
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 667.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "paneloperador.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2066,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1884,
+								1884
+							]
+						],
+						"settings":
+						{
+							"auto_name": "paneloperador.php",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2017.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "assets/css/style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 30,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								24,
+								24
+							]
+						],
+						"settings":
+						{
+							"auto_name": "style.css",
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/wamp/www/sitios/tareas/tareas.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3287,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								352,
+								352
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 538.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/wamp64/www/mis_sitios/tareas/css/estilo.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 70,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1,
+								1
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 37.0
+	},
+	"input":
+	{
+		"height": 45.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "index.sublime-project",
+	"replace":
+	{
+		"height": 74.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 222.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
