@@ -22,7 +22,7 @@
 			<div class="row">
 				<div class="col-md-5 col-md-offset-1">
 					<h5>Solicitudes de Cambio</h5>
-					<div class="table-responsive panel panel-default">
+					<div class="table-striped table-responsive panel panel-default">
 						<table class="table table-hover">
 							<thead>
 								<tr>
@@ -46,7 +46,7 @@
 				</div>
 				<div class="col-md-5 ">
 					<h5>Información del Cambio</h5>
-					<div class="panel panel-default">
+					<div class="panel panel-default well">
 						<div class="row">
 							<div class="col-md-12">
 								<p>DESCRIPCION</p>
