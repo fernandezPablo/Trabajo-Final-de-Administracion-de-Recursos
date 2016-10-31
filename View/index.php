@@ -13,12 +13,14 @@
 	</head>
 	<body>
 		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-4 col-md-offset-1">
-					<h2>Bienvenido</h2>
+
+			<div class="row centrarVertical">
+				<div class="col-md-4 col-md-offset-2">
+					<h1>Bienvenido</h1>
 					<h4>Sistema de Gestion de Cambios</h4>
 				</div>
-				<div class="col-md-4 col-md-offset-1 panel panel-default well login">
+
+				<div class="col-md-3 col-md-offset-1 panel panel-default well login">
 					<form action="#" method="POST" role="form">
 						<div class="form-group">
 							<label for="user" class="text-primary">Usuario</label>
@@ -27,15 +29,31 @@
 							<label for="pass" class="text-primary">Contraseña</label>
 							<input type="password" class="form-control" id="pass" placeholder="">
 						</div>
-							<button type="INGRESAR" class="btn btn-primary btn-sm center-block">INGRESAR</button>
+							<br>
+							<button type="INGRESAR" class="btn btn-primary btn-block">INGRESAR</button>
 					</form>
 				</div>
 			</div>
 		</div>
+
+		<nav class="navbar-fixed-bottom" role="navigation">
+			<div class="container alinearHorizontal">
+				<ul class="nav navbar-nav">
+					<li class="">
+						<p class="text-muted">Administración de Recursos</p>
+
+					</li>
+					<li>
+						<p class="text-muted">-Trabajo Integrador</p>
+					</li>
+				</ul>
+			</div>
+		</nav>
 		<!-- jQuery -->
-		<script src="./assets/js/jquery.min.js"></script>
+		<script src="./assets/js/jquery.min.js"/>
 		<!-- Bootstrap JavaScript -->
-		<script src="./assets/js/bootstrap.min.js" ></script>
+		<script src="./assets/js/bootstrap.min.js"/>
+
 
 	</body>
 </html>
