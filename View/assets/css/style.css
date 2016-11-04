@@ -13,9 +13,13 @@ body {
 }
 
 .margenTopContainer{
-	margin-top: 6%;
+	margin-top: 8%;
 }
 
 .alinearHorizontal {
 	margin:0% 20% 0% 38%;
+}
+
+h4.headerInline{
+	display: inline;
 }

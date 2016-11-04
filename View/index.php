@@ -9,6 +9,7 @@
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="./assets/css/style.css">
+		<link rel="stylesheet" href="./assets/css/font-awesome.min.css">
 
 	</head>
 	<body>
@@ -23,9 +24,11 @@
 				<div class="col-md-3 col-md-offset-1 panel panel-default well login">
 					<form action="#" method="POST" role="form">
 						<div class="form-group">
+							<i class="fa fa-user-o" aria-hidden="true"></i>
 							<label for="user" class="text-primary">Usuario</label>
 							<input type="text" class="form-control" id="user" placeholder="">
 							<br>
+							<i class="fa fa-key" aria-hidden="true"></i>
 							<label for="pass" class="text-primary">Contraseña</label>
 							<input type="password" class="form-control" id="pass" placeholder="">
 						</div>

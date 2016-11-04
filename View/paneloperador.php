@@ -9,12 +9,13 @@
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+		<link rel="stylesheet" href="./assets/css/font-awesome.min.css">
 		
 		
 	</head>
 	<body>
 
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation  ">
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation  margenBottomNavBar">
 			<div class="container">
 				<a class="navbar-brand" href="#">Title</a>
 				<ul class="nav navbar-nav">
@@ -28,10 +29,9 @@
 			</div>
 		</nav>
 
-
-		<div class="container-fluid margenTopContainer">
+		<div class="container-fluid">
 	
-			<div class="row"> <!--FILA2-->
+			<div class="row margenTopContainer"> <!--FILA1-->
 				<div class="col-md-5 col-md-offset-1">
 					<h4>Solicitudes de Cambio</h4>
 					<div class="table-striped table-responsive panel panel-default">
@@ -45,7 +45,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
+								<tr class="warning">
 									<td class="text-center">
 										Proyectos
 										<?php 
@@ -72,14 +72,68 @@
 									</td>
 
 								</tr>
+								<tr class="danger">
+									<td class="text-center">
+										Incidentes
+										<?php 
+
+										 ?>
+									</td>
+									<td class="text-center">
+										Perez, Juan
+										<?php 
+
+										 ?>
+									</td>
+									<td class="text-center">
+										04/11/16
+										<?php 
+
+										 ?>
+									</td>
+									<td class="text-center">
+										URGENTE
+										<?php 
+
+										 ?>
+									</td>
+
+								</tr>
+								<tr>
+									<td class="text-center">
+										Proyectos
+										<?php 
+
+										 ?>
+									</td>
+									<td class="text-center">
+										Rodriguez, Pedro
+										<?php 
+
+										 ?>
+									</td>
+									<td class="text-center">
+										28/10/16
+										<?php 
+
+										 ?>
+									</td>
+									<td class="text-center">
+										BAJA
+										<?php 
+
+										 ?>
+									</td>
+
+								</tr>
 							</tbody>
 						</table>
 					</div>
 				</div>
 				<div class="col-md-5 ">
-					<h4>Información del Cambio</h4>
+					<h4 class="headerInline">Información del Cambio</h4>
+					<div class="pull-right"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a href="#"> Editar</a></div>
 					<div class="panel panel-default well">
-
 						<div class="row"> <!--FILA2-->
 							<div class="col-md-12">
 								<p class="text-info">DESCRIPCION</p>
@@ -131,9 +185,11 @@
 						</div>
 							<div class="row">
 								<br>
-								<div class="col-md-6 pull-right">
-									<button type="button" class="btn btn-default">RECHAZAR</button>
-									<button type="button" class="btn btn-primary">ACEPTAR</button>
+								<div class="col-md-12">
+									<div class="pull-right">
+										<button type="button" class="btn btn-default">RECHAZAR</button>
+										<button type="button" class="btn btn-primary">ACEPTAR</button>
+									</div>
 								</div>
 							</div>
 					</div>
