@@ -15,15 +15,12 @@
 	</head>
 	<body>
 
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation  margenBottomNavBar">
-			<div class="container">
-				<a class="navbar-brand" href="#">Title</a>
-				<ul class="nav navbar-nav">
-					<li class="active">
-						<a href="#">Home</a>
-					</li>
-					<li>
-						<a href="#">Link</a>
+		<nav class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
+			<div class="container" id="navbar">
+				<a class="navbar-brand" href="#">Gestión de Cambios</a>
+				<ul class="nav navbar-nav pull-right">
+					<li class="active ">
+						<a href="#" class=""> Usuario</a>
 					</li>
 				</ul>
 			</div>
@@ -152,6 +149,7 @@
 								<p class="text-info">EQUIPO</p>
 								<p class="text-info">IMPACTO</p>
 								<p class="text-info">PRIORIDAD</p>
+								<p class="text-info">CATEGORIA</p>
 							</div>
 							<div class="col-md-5 col-md-offset-1">
 								<p class="text-right">	
@@ -180,7 +178,9 @@
 									ALTA
 									<?php  ?>
 								</p>
-								
+								<p class="text-right">
+									Sin asignar
+								</p>
 							</div>
 						</div>
 							<div class="row">

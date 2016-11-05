@@ -9,11 +9,11 @@ body {
 }
 
 .centrarVertical{
-	margin-top: 17%;
+	margin-top: 13%;
 }
 
 .margenTopContainer{
-	margin-top: 8%;
+	margin-top: 5%;
 }
 
 .alinearHorizontal {
@@ -23,3 +23,4 @@ body {
 h4.headerInline{
 	display: inline;
 }
+

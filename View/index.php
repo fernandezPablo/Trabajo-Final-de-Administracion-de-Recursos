@@ -26,7 +26,7 @@
 						<div class="form-group">
 							<i class="fa fa-user-o" aria-hidden="true"></i>
 							<label for="user" class="text-primary">Usuario</label>
-							<input type="text" class="form-control" id="user" placeholder="">
+							<input type="text" class="form-control" id="user" autofocus="">
 							<br>
 							<i class="fa fa-key" aria-hidden="true"></i>
 							<label for="pass" class="text-primary">Contraseña</label>
