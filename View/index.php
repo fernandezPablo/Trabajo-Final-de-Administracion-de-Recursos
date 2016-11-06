@@ -12,15 +12,14 @@
 
 	</head>
 	<body>
-		<div class="container-fluid">
-
-			<div class="row centrarVertical">
+		<div class="container-fluid centrarVertical">
+			<div class="row">
 				<div class="col-md-4 col-md-offset-2">
 					<h1>Bienvenido</h1>
 					<h4>Sistema de Gestion de Cambios</h4>
 				</div>
 
-				<div class="col-md-3 col-md-offset-1 panel panel-default well login">
+				<div class="col-md-3 col-md-offset-1 panel panel-default well" id="login">
 					<form action="#" method="POST" role="form">
 						<div class="form-group">
 							<label for="user" class="text-primary">Usuario</label>
@@ -37,9 +36,9 @@
 		</div>
 
 		<nav class="navbar-fixed-bottom" role="navigation">
-			<div class="container alinearHorizontal">
-				<ul class="nav navbar-nav">
-					<li class="">
+			<div class="container">
+				<ul class="nav navbar-nav centrarHorizontal">
+					<li>
 						<p class="text-muted">Administración de Recursos</p>
 
 					</li>
