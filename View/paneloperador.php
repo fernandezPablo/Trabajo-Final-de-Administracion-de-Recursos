@@ -24,8 +24,6 @@
 				</ul>
 			</div>
 		</nav>
-		
-		<i class="fa fa-car"></i>
 
 		<div class="container-fluid paddingLateral">
 			<br>
@@ -169,6 +167,7 @@
 									<p class="text-info">EQUIPO</p>
 									<p class="text-info">IMPACTO</p>
 									<p class="text-info">PRIORIDAD</p>
+								</div>
 
 								<div class="col-md-6 ">
 									<p class="text-right">Luna, Sixto</p>
@@ -190,14 +189,15 @@
 										<?php  ?>
 									</p>
 								</div>
+								
 							</div>
 
 							<div class="row">
 								<br>
 								<div class="col-md-12">
 
-									<button type="button" class="btn btn-default pull-right">ACEPTAR</button>
-									<button type="button" class="btn btn-primary pull-right buttonMargin">RECHAZAR</button>
+									<button type="button" class="btn btn-default pull-right buttonMargin">ACEPTAR</button>
+									<button type="button" class="btn btn-primary pull-right">RECHAZAR</button>
 								</div>
 							</div>
 						</div>
