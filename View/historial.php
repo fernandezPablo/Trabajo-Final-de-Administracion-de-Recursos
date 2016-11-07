@@ -60,7 +60,7 @@
 							</li>
 
 							<li><a href="AltaUsuario.php">Nuevos</a></li>
-							<li><a href="#">Eliminar</a></li>
+							<li><a href="BajaUsuario.php">Eliminar</a></li>
 						</ul>
 					</div>
 				</div>
