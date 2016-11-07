@@ -50,7 +50,7 @@
 							</li>
 
 							<li class="active"><a href="#">Nuevos</a></li>
-							<li><a href="#">Eliminar</a></li>
+							<li><a href="BajaUsuario.php">Eliminar</a></li>
 						</ul>
 					</div>
 				</div>
