@@ -40,12 +40,12 @@
 							<li class="disabled">
 								<p class="text-muted small">CAMBIOS</p>
 							</li>
-							<li class="active"><a href="panelAdministrador.php">Aceptados</a></li>
-  							<li><a href="#">Aprobados</a></li>
-  							<li><a href="#">Planificados</a></li>
-  							<li><a href="#">Realizados</a></li>
-  							<li><a href="#">Cerrados</a></li>
-  							<li><a href="historial.php">Historial</a></li>
+							<li id="aceptado" class="active estado"><a href="panelAdministrador.php">Aceptados</a></li>
+  							<li id="aprobado" class="estado"><a href="#">Aprobados</a></li>
+  							<li id="planificado" class="estado"><a href="#">Planificados</a></li>
+  							<li id="realizado" class="estado"><a href="#">Realizados</a></li>
+  							<li id="cerrado" class="estado"><a href="#">Cerrados</a></li>
+  							<li id="historial" class="estado"><a href="historial.php">Historial</a></li>
 						</ul>
 
 						<hr>
@@ -66,7 +66,7 @@
 				</div>
 
 				<div class="col-md-10">
-					<p>NUEVOS CAMBIOS</p>
+					<p id="title">CAMBIOS ACEPTADOS</p>
 					<table class="table table-hover panel-default panel">
 						<thead>
 							<tr>
@@ -184,6 +184,8 @@
 		</div>
 		<!-- jQuery -->
 		<script src="./assets/js/jquery.min.js"></script>
+		<!-- Custom script -->
+		<script src="./assets/js/paneladministrador.js"></script>
 		<!-- Bootstrap JavaScript -->
 		<script src="./assets/js/bootstrap.min.js" ></script>
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
