@@ -42,11 +42,13 @@
 							<li class="disabled">
 								<p class="text-muted small">CAMBIOS</p>
 							</li>
-							<li><a href="panelAdministrador.php">Aprobados</a></li>
-  							<li><a href="#">Anulados</a></li>
+
+  							<li><a href="panelAdministrador.php">Aceptados</a></li>
+  							<li><a href="#">Aprobados</a></li>
   							<li><a href="#">Planificados</a></li>
   							<li><a href="#">Realizados</a></li>
-  							<li class="active"><a href="#" >Historial</a></li>
+  							<li><a href="#">Cerrados</a></li>
+  							<li class="active"><a href="historial.php">Historial</a></li>
 						</ul>
 
 						<hr>
@@ -57,7 +59,7 @@
 								<p class="text-muted small">USUARIOS</p>
 							</li>
 
-							<li><a href="#">Nuevos</a></li>
+							<li><a href="AltaUsuario.php">Nuevos</a></li>
 							<li><a href="#">Eliminar</a></li>
 						</ul>
 					</div>
@@ -66,7 +68,7 @@
 
 				<div class="col-md-10">
 					<p>HISTORIAL</p>
-
+					<hr>
 					<div class="row">
 						<div class="col-md-12">
 

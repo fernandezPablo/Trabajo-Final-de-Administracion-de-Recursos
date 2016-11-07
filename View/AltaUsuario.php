@@ -12,30 +12,33 @@
 	
 	</head>
 	<body>
+
 		<nav class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
-			<div class="container" id="navbar">
-				<a class="navbar-brand" href="#">Gestión de Cambios</a>
-				<ul class="nav navbar-nav pull-right">
-					<li class="active ">
-						<a href="#" class="">Usuario</a>
-					</li>
+			<div class="container-fluid paddingLateral">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Gestión de Cambios</a>
+				</div>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#" >Daniel</a></li>
 				</ul>
 			</div>
 		</nav>
 
-		<div class="container-fluid">
+		<div class="container-fluid paddingLateral">
 			<div class="row">
 				<div class="col-md-2">
 					<div>
 						<ul class="nav nav-pills nav-stacked">
 							<li class="disabled">
-								<p class="text-muted">CAMBIOS</p>
+								<p class="text-muted small">CAMBIOS</p>
 							</li>
-							<li><a href="#">Aprobados</a></li>
-  							<li><a href="#">Anulados</a></li>
-  							<li class="active"><a href="#">Planificados</a></li>
+
+  							<li><a href="panelAdministrador.php">Aceptados</a></li>
+  							<li><a href="#">Aprobados</a></li>
+  							<li><a href="#">Planificados</a></li>
   							<li><a href="#">Realizados</a></li>
-  							<li><a href="#">Historial</a></li>
+  							<li><a href="#">Cerrados</a></li>
+  							<li><a href="historial.php">Historial</a></li>
 						</ul>
 
 						<hr>
@@ -43,20 +46,21 @@
 						<ul class="nav nav-pills nav-stacked">
 							
 							<li>
-								<p class="text-muted">USUARIOS</p>
+								<p class="text-muted small">USUARIOS</p>
 							</li>
 
-							<li><a href="#">Nuevos</a></li>
+							<li class="active"><a href="#">Nuevos</a></li>
 							<li><a href="#">Eliminar</a></li>
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-10">
+
+				<div class="col-md-9">
 					<form action="" method="POST" role="form" class="form-horizontal"	>
-						<h2>Nuevo Usuario</h2>
-						<br><br>
+						<p>NUEVO USUARIO</p>
+						<hr>
 						<div class="form-group">
-							<label for="ayn" class="col-md-2 control-label">
+							<label for="ayn" class="col-md-3 control-label">
 								Apellido y Nombre
 							</label>
 							<div class="col-md-6">
@@ -65,7 +69,7 @@
 						</div>
 						<br>
 						<div class="form-group">
-							<label for="user" class="col-md-2 control-label">
+							<label for="user" class="col-md-3 control-label">
 								Usuario
 							</label>
 							<div class="col-md-6">
@@ -74,7 +78,7 @@
 						</div>
 						<br>
 						<div class="form-group">
-							<label for="pass" class="col-md-2 control-label">
+							<label for="pass" class="col-md-3 control-label">
 								Contraseña
 							</label>
 							<div class="col-md-6">
@@ -83,7 +87,7 @@
 						</div>
 						<br>
 						<div class="form-group">
-							<label for="pass_confirm" class="col-md-2 control-label">
+							<label for="pass_confirm" class="col-md-3 control-label">
 								Confirmar Contraseña
 							</label>
 							<div class="col-md-6">
@@ -92,7 +96,7 @@
 						</div>
 						<br>
 						<div class="form-group">
-							<label for="perfil" class="col-md-2 control-label">
+							<label for="perfil" class="col-md-3 control-label">
 								Perfil
 							</label>
 							<div class="col-md-6">
@@ -111,7 +115,7 @@
 						</div>
 						<br>
 						<div class="form-group">
-							<div class="col-md-8">
+							<div class="col-md-9">
 								<button type="submit" class="btn btn-primary pull-right">
 									<i class="fa fa-check" aria-hidden="true"></i>
 									&nbsp;CREAR

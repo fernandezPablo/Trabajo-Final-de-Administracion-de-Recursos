@@ -20,7 +20,7 @@
 					<h4>Sistema de Gestion de Cambios</h4>
 				</div>
 
-				<div class="col-md-3 col-md-offset-1 panel panel-default well" id="login">
+				<div class="col-md-3 col-md-offset-1 panel panel-default " id="login">
 					<form action="#" method="POST" role="form">
 						<div class="form-group">
 							<i class="fa fa-user-o" aria-hidden="true"></i>
