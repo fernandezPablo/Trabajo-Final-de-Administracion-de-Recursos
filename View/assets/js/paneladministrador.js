@@ -5,9 +5,6 @@ $(document).ready(function(){
 });
 
 function activeItem(){
-	$(".active").removeClass('active');
-	$(this).addClass('active');
-	console.log($(this)[0].id);
 	var $title = $("#title");
 	switch($(this)[0].id){
 		case 'aceptado':
