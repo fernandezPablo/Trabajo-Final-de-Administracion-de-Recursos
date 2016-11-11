@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php 
 	if(isset($_GET['estado'])){
 		switch ($_GET['estado']) {
@@ -25,9 +24,6 @@
 
  ?>
 
-=======
-<p id="title">CAMBIOS ACEPTADOS</p>
->>>>>>> 42970e51f0abbc36a24928363f518f80ea20af46
 <table class="table table-hover panel-default panel">
 	<thead>
 		<tr>
