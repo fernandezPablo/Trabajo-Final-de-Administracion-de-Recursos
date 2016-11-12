@@ -1,8 +1,9 @@
-body {
-		background-color: #f1f1f1;
+
+.paddingLateral {
+	padding: 0 5%;
 }
 
-.login{
+#login{
 		background-color: #ffffff;
 		padding-top: 30px;
 		padding-bottom: 30px;
@@ -16,11 +17,20 @@ body {
 	margin-top: 5%;
 }
 
-.alinearHorizontal {
-	margin:0% 20% 0% 38%;
+.centrarHorizontal {
+	margin-left: 35%;
+}
+
+
+.textvertical{
+	padding-top:12px;
 }
 
 h4.headerInline{
 	display: inline;
 }
 
+.buttonMargin {
+	margin-left: 20px;
+	margin-right: 0px;
+}
