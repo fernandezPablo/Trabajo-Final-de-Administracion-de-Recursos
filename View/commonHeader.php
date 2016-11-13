@@ -4,7 +4,7 @@
 			<a class="navbar-brand" href="#">Gestión de Cambios</a>
 		</div>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#" >Daniel</a></li>
+			<li><a href="#" >Daniel</a></i></li>
 		</ul>
 	</div>
 </nav>

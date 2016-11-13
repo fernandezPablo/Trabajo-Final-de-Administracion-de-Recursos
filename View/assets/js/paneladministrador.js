@@ -1,26 +1,25 @@
 $(document).ready(function(){
-	var $items = $(".estado");
-	console.log($items);
-	$items.click(activeItem);
+	var $title = $("p#title");
+	var $item = $("#"+ $title.attr('name'));
+	$item.addClass('active');
+
+	$("p#title_cambios").click(function(){
+		hiddenList("1",$(this));
+	});
+	$("p#title_usuarios").click(function(){hiddenList("2",$(this));
+	});
 });
 
-function activeItem(){
-	var $title = $("#title");
-	switch($(this)[0].id){
-		case 'aceptado':
-			$title[0].innerHTML = 'CAMBIOS ACEPTADOS';
-			break;
-		case 'aprobado':
-			$title[0].innerHTML = 'CAMBIOS APROBADOS';
-			break;
-		case 'planificado':
-			$title[0].innerHTML = 'CAMBIOS PLANIFICADOS';
-			break;
-		case 'realizado':
-			$title[0].innerHTML = 'CAMBIOS REALIZADOS';
-			break;
-		case 'cerrado':
-				$title[0].innerHTML = 'CAMBIOS CERRADOS';
-				break;
-	}
+function hiddenList(area,$item){
+	console.log($item.children());
+	$("ul#hidden_area_"+area).slideToggle(250,function(){
+		if($item.children().attr("class").includes("fa-chevron-up")){
+			$item.children().removeClass("fa-chevron-up");
+			$item.children().addClass("fa-chevron-down");
+		}
+		else{
+			$item.children().removeClass("fa-chevron-down");
+			$item.children().addClass("fa-chevron-up");
+		}
+	});
 }
