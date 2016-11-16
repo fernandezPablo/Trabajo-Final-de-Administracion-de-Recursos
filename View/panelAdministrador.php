@@ -39,12 +39,12 @@
 						switch ($_GET['page']) {
 							case 'cambios':
 								if(isset($_GET['estado'])){
-									//include("http://localhost/mis_sitios/tfar/View/tablaCambios.php?estado=".$_GET['estado']);
-									include("http://localhost/proyFinal/View/tablaCambios.php?estado=".$_GET['estado']);
+									include("http://localhost/mis_sitios/tfar/View/tablaCambios.php?estado=".$_GET['estado']);
+									#include("http://localhost/proyFinal/View/tablaCambios.php?estado=".$_GET['estado']);
 								}
 								else{
-									//include("http://localhost/mis_sitios/tfar/View/tablaCambios.php?estado=aceptado");
-									include("http://localhost/proyFinal/View/tablaCambios.php?estado=aceptado");
+									include("http://localhost/mis_sitios/tfar/View/tablaCambios.php?estado=aceptado");
+									#include("http://localhost/proyFinal/View/tablaCambios.php?estado=aceptado");
 								}
 								break;
 							case 'historial':
@@ -67,12 +67,14 @@
 								break;
 								
 							default:
-								include("http://localhost/proyFinal/View/tablaCambios.php?estado=aceptado");
+								include("http://localhost/tfar/View/tablaCambios.php?estado=aceptado");
+								#include("http://localhost/proyFinal/View/tablaCambios.php?estado=aceptado");
 								break;
 						}
 					}
 					else{
 						include("http://localhost/mis_sitios/tfar/View/tablaCambios.php?estado=aceptado");
+						#include("http://localhost/mis_sitios/proyFinal/View/tablaCambios.php?estado=aceptado");
 					}
 					 ?>
 				</div>

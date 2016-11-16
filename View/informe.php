@@ -1,7 +1,7 @@
 <div class="container-fluid">
 
 				<div class="row">
-					<p><b>INFORME</b></p>
+					<p id="title" name="informe"><b>INFORME</b></p>
 					<p>Seleccione un mes para obtener información acerca de los cambios </p>
 					<form action="" method="POST" role="form" class="form-horizontal">
 					
@@ -41,9 +41,11 @@
 								<thead>
 									<tr>
 										<th>ID</th>
+										<th>FECHA SOLICITUD</th>
 										<th>SOLICITANTE</th>
 										<th>ORIGEN</th>
 										<th>PRIORIDAD</th>
+										<th>IMPACTO</th>
 										<th>FECHA CERRADO</th>
 									</tr>
 								</thead>
@@ -54,8 +56,12 @@
 										<td>dato1</td>
 										<td>dato1</td>
 										<td>dato1</td>
+										<td>dato1</td>
+										<td>dato1</td>
 									</tr>
 									<tr>
+										<td>dato1</td>
+										<td>dato1</td>
 										<td>dato1</td>
 										<td>dato1</td>
 										<td>dato1</td>
@@ -74,9 +80,11 @@
 								<thead>
 									<tr>
 										<th>ID</th>
+										<th>FECHA SOLICITUD</th>
 										<th>SOLICITANTE</th>
 										<th>ORIGEN</th>
 										<th>PRIORIDAD</th>
+										<th>IMPACTO</th>
 										<th>APROBADO POR</th>
 									</tr>
 								</thead>
@@ -87,8 +95,12 @@
 										<td>dato1</td>
 										<td>dato1</td>
 										<td>dato1</td>
+										<td>dato1</td>
+										<td>dato1</td>
 									</tr>
 									<tr>
+										<td>dato1</td>
+										<td>dato1</td>
 										<td>dato1</td>
 										<td>dato1</td>
 										<td>dato1</td>
