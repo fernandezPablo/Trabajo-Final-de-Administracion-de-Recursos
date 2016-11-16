@@ -7,6 +7,7 @@
   		<li id="realizado" class="estado"><a href="panelAdministrador.php?page=cambios&estado=realizado">Realizados</a></li>
   		<li id="cerrado" class="estado"><a href="panelAdministrador.php?page=cambios&estado=cerrado">Cerrados</a></li>
   		<li id="historial" class="estado"><a href="./panelAdministrador.php?page=historial">Historial</a></li>
+  		<li id="informe" class="estado"><a href="./panelAdministrador.php?page=informe">Informe</a></li>
 	</ul>
 
 	<hr>

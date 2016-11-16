@@ -39,29 +39,35 @@
 						switch ($_GET['page']) {
 							case 'cambios':
 								if(isset($_GET['estado'])){
-									include("http://localhost/mis_sitios/tfar/View/tablaCambios.php?estado=".$_GET['estado']);
+									//include("http://localhost/mis_sitios/tfar/View/tablaCambios.php?estado=".$_GET['estado']);
+									include("http://localhost/proyFinal/View/tablaCambios.php?estado=".$_GET['estado']);
 								}
 								else{
-									include("http://localhost/mis_sitios/tfar/View/tablaCambios.php?estado=aceptado");
+									//include("http://localhost/mis_sitios/tfar/View/tablaCambios.php?estado=aceptado");
+									include("http://localhost/proyFinal/View/tablaCambios.php?estado=aceptado");
 								}
 								break;
 							case 'historial':
 								
 								include("./historial.php");
 								break;
-							
-							case 'nuevousuario':
-								
-								include("./AltaUsuario.php");
+
+							case 'informe':
+								include("./informe.php");
 								break;
 							
+							case 'nuevousuario':
+						
+								include("./AltaUsuario.php");
+								break;
+								
 							case 'eliminarusuario':
 									
 								include("./BajaUsuario.php");
 								break;
-							
+								
 							default:
-								include("http://localhost/mis_sitios/tfar/View/tablaCambios.php?estado=aceptado");
+								include("http://localhost/proyFinal/View/tablaCambios.php?estado=aceptado");
 								break;
 						}
 					}
