@@ -1,5 +1,5 @@
 <form action="" method="POST" role="form" class="form-horizontal"	>
-	<p>NUEVO USUARIO</p>
+	<p id="title" name="nuevousuario">NUEVO USUARIO</p>
 	<hr>
 	<div class="form-group">
 		<label for="ayn" class="col-md-3 control-label">

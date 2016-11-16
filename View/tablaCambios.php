@@ -1,33 +1,29 @@
-<<<<<<< HEAD
 <?php 
 	if(isset($_GET['estado'])){
 		switch ($_GET['estado']) {
 			case 'aceptado':
-				echo "<p id='title'>CAMBIOS ACEPTADOS</p>";
+				echo "<p id='title' name='aceptado'>CAMBIOS ACEPTADOS</p>";
 				break;
 			case 'aprobado':
-				echo "<p id='title'>CAMBIOS APROBADOS</p>";
+				echo "<p id='title' name='aprobado'>CAMBIOS APROBADOS</p>";
 				break;
 			case 'planificado':
-				echo "<p id='title'>CAMBIOS PLANIFICADOS</p>";
+				echo "<p id='title' name='planificado'>CAMBIOS PLANIFICADOS</p>";
 				break;
 			case 'realizado':
-				echo "<p id='title'>CAMBIOS REALIZADOS</p>";
+				echo "<p id='title' name='realizado'>CAMBIOS REALIZADOS</p>";
 				break;
 			case 'cerrado':
-				echo "<p id='title'>CAMBIOS CERRADOS</p>";
+				echo "<p id='title' name='cerrado'>CAMBIOS CERRADOS</p>";
 				break;
 			default:
-				echo "<p id='title'>CAMBIOS ACEPTADOS</p>";
+				echo "<p id='title' name='aceptado'>CAMBIOS ACEPTADOS</p>";
 				break;
 		}
 	}
 
  ?>
 
-=======
-<p id="title">CAMBIOS ACEPTADOS</p>
->>>>>>> 42970e51f0abbc36a24928363f518f80ea20af46
 <table class="table table-hover panel-default panel">
 	<thead>
 		<tr>

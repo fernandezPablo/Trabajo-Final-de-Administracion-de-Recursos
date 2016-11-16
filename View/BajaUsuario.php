@@ -1,4 +1,4 @@
-<p>ELIMINAR USUARIO</p>
+<p id="title" name="eliminarusuario">ELIMINAR USUARIO</p>
 <hr>
 <table class="table table-condensed table-hover panel-default panel">
 	<thead>

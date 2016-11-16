@@ -1,9 +1,7 @@
 <div>
-	<ul class="nav nav-pills nav-stacked">
-		<li class="disabled">
-			<p class="text-muted small">CAMBIOS</p>
-		</li>
-		<li id="aceptado" class="estado"><a href="panelAdministrador.php?page=cambios&estado=aceptado">Aceptados</a></li>
+	<p id="title_cambios" class="text-muted small">CAMBIOS <i class="fa fa-chevron-up pull-right" aria-hidden="true"></i></p>
+	<ul id="hidden_area_1" class="nav nav-pills nav-stacked">
+		<li id="aceptado" class="estado "><a href="panelAdministrador.php?page=cambios&estado=aceptado">Aceptados</a></li>
   		<li id="aprobado" class="estado"><a href="panelAdministrador.php?page=cambios&estado=aprobado">Aprobados</a></li>
   		<li id="planificado" class="estado"><a href="panelAdministrador.php?page=cambios&estado=planificado">Planificados</a></li>
   		<li id="realizado" class="estado"><a href="panelAdministrador.php?page=cambios&estado=realizado">Realizados</a></li>
@@ -13,13 +11,9 @@
 
 	<hr>
 
-	<ul class="nav nav-pills nav-stacked">
-							
-		<li>
-			<p class="text-muted small">USUARIOS</p>
-		</li>
-
-		<li><a href="./panelAdministrador.php?page=nuevousuario">Nuevos</a></li>
-		<li><a href="./panelAdministrador.php?page=eliminarusuario">Eliminar</a></li>
+	<p id="title_usuarios" class="text-muted small">USUARIOS<i class="fa fa-chevron-up pull-right" aria-hidden="true"></i></p>
+	<ul id="hidden_area_2" class="nav nav-pills nav-stacked">		
+			<li id="nuevousuario"><a href="./panelAdministrador.php?page=nuevousuario">Nuevos</a></li>
+			<li id="eliminarusuario"><a href="./panelAdministrador.php?page=eliminarusuario">Eliminar</a></li>
 	</ul>
 </div>
