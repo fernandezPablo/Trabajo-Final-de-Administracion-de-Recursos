@@ -1,4 +1,4 @@
-<div>
+<div class=" panel panel-default panel-body sidebar">
 	<p id="title_cambios" class="text-muted small">CAMBIOS <i class="fa fa-chevron-up pull-right" aria-hidden="true"></i></p>
 	<ul id="hidden_area_1" class="nav nav-pills nav-stacked">
 		<li id="aceptado" class="estado "><a href="panelAdministrador.php?page=cambios&estado=aceptado">Aceptados</a></li>
