@@ -1,10 +1,10 @@
 {
-	"cambios_peticion" : "SELECT * FROM cambio WHERE fk_idEstado = (SELECT idEstado FROM estado WHERE nombre = 'aceptado' LIMIT 1)",
-	"cambios_aceptados" : "SELECT * FROM cambio WHERE fk_idEstado = (SELECT idEstado FROM estado WHERE nombre = 'aceptado' LIMIT 1)",
-	"cambios_rechazados" : "SELECT * FROM cambio WHERE fk_idEstado = (SELECT idEstado FROM estado WHERE nombre = 'rechazado' LIMIT 1)",	
-	"cambios_aprobados" : "SELECT * FROM cambio WHERE fk_idEstado = (SELECT idEstado FROM estado WHERE nombre = 'aprobado' LIMIT 1)",
-	"cambios_anulados" : "SELECT * FROM cambio WHERE fk_idEstado = (SELECT idEstado FROM estado WHERE nombre = 'anulado' LIMIT 1)",
-	"cambios_planificados" : "SELECT * FROM cambio WHERE fk_idEstado = (SELECT idEstado FROM estado WHERE nombre = 'planificado' LIMIT 1)",
-	"cambios_realizados" : "SELECT * FROM cambio WHERE fk_idEstado = (SELECT idEstado FROM estado WHERE nombre = 'realizado' LIMIT 1)",
-	"cambios_cerrados" : "SELECT * FROM cambio WHERE fk_idEstado = (SELECT idEstado FROM estado WHERE nombre = 'cerrado' LIMIT 1)",
+	"cambios_peticion": "SELECT * FROM cambio WHERE fk_idEstado = (SELECT idEstado FROM estado WHERE nombre = 'peticion' LIMIT 1)",
+	"cambios_aceptados": "SELECT * FROM cambio WHERE fk_idEstado = (SELECT idEstado FROM estado WHERE nombre = 'aceptado' LIMIT 1)",
+	"cambios_rechazados": "SELECT * FROM cambio WHERE fk_idEstado = (SELECT idEstado FROM estado WHERE nombre = 'rechazado' LIMIT 1)",	
+	"cambios_aprobados": "SELECT * FROM cambio WHERE fk_idEstado = (SELECT idEstado FROM estado WHERE nombre = 'aprobado' LIMIT 1)",
+	"cambios_anulados": "SELECT * FROM cambio WHERE fk_idEstado = (SELECT idEstado FROM estado WHERE nombre = 'anulado' LIMIT 1)",
+	"cambios_planificados": "SELECT * FROM cambio WHERE fk_idEstado = (SELECT idEstado FROM estado WHERE nombre = 'planificado' LIMIT 1)",
+	"cambios_realizados": "SELECT * FROM cambio WHERE fk_idEstado = (SELECT idEstado FROM estado WHERE nombre = 'realizado' LIMIT 1)",
+	"cambios_cerrados": "SELECT * FROM cambio WHERE fk_idEstado = (SELECT idEstado FROM estado WHERE nombre = 'cerrado' LIMIT 1)"
 }

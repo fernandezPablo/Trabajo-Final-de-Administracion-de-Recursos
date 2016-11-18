@@ -15,6 +15,7 @@
 	<body>
 		
 		<?php 
+			require_once("../Controller/OperadorController.php");
 			include("./commonHeader.php");
 		 ?>
 		
@@ -30,6 +31,7 @@
 						<table class="table table-hover">
 							<thead>
 								<tr>
+									<th class="text-center">Id Cambio</th>
 									<th class="text-center">Origen</th>
 									<th class="text-center">Solicitante</th>
 									<th class="text-center">Vencmiento</th>
@@ -37,87 +39,18 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr class="warning">
-									<td class="text-center">
-										Proyectos
-										<?php 
-
-										 ?>
-									</td>
-									<td class="text-center">
-										Luna, Sixto
-										<?php 
-
-										 ?>
-									</td>
-									<td class="text-center">
-										31/10/16
-										<?php 
-
-										 ?>
-									</td>
-									<td class="text-center">
-										ALTA
-										<?php 
-
-										 ?>
-									</td>
-
-								</tr>
-								<tr class="danger">
-									<td class="text-center">
-										Incidentes
-										<?php 
-
-										 ?>
-									</td>
-									<td class="text-center">
-										Perez, Juan
-										<?php 
-
-										 ?>
-									</td>
-									<td class="text-center">
-										04/11/16
-										<?php 
-
-										 ?>
-									</td>
-									<td class="text-center">
-										URGENTE
-										<?php 
-
-										 ?>
-									</td>
-
-								</tr>
-								<tr>
-									<td class="text-center">
-										Proyectos
-										<?php 
-
-										 ?>
-									</td>
-									<td class="text-center">
-										Rodriguez, Pedro
-										<?php 
-
-										 ?>
-									</td>
-									<td class="text-center">
-										28/10/16
-										<?php 
-
-										 ?>
-									</td>
-									<td class="text-center">
-										BAJA
-										<?php 
-
-										 ?>
-									</td>
-
-								</tr>
+							<?php 
+								$arrayCambios= OperadorController::getListadoCambiosPeticion();
+								for($i=0;$i<count($arrayCambios);$i++){
+									echo "<tr class='fila'>";
+									echo "<td>".$arrayCambios[$i]->getIdCambio()."</td>";
+									echo "<td>".$arrayCambios[$i]->getSysExterno()->getNombreSysExterno()."</td>";
+									echo "<td>".$arrayCambios[$i]->getNombreSolicitante()."</td>";
+									echo "<td>".$arrayCambios[$i]->getFechaDeVencimiento()."</td>";
+									echo "<td>".$arrayCambios[$i]->getPrioridad()->getNombrePrioridad()."</td>";
+									echo "</tr>";
+								}
+							 ?>
 							</tbody>
 						</table>
 					</div>
@@ -201,6 +134,8 @@
 
 		<!-- jQuery -->
 		<script src="./assets/js/jquery.min.js"></script>
+		<!--Custom Script-->
+		<script src="./assets/js/paneloperador.js"></script>
 		<!-- Bootstrap JavaScript -->
 		<script src="./assets/js/bootstrap.min.js" ></script>
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

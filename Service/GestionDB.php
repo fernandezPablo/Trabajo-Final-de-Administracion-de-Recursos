@@ -1,6 +1,11 @@
 <?php 
 
 require_once("../Model/Cambio.php");
+require_once("../Model/Estado.php");
+require_once("../Model/Impacto.php");
+require_once("../Model/Categoria.php");
+require_once("../Model/Prioridad.php");
+require_once("../Model/SysExterno.php");
 
 	class GestionDB{
 
@@ -21,42 +26,40 @@ require_once("../Model/Cambio.php");
 
 		function connect(){
 			$this->configDb();
-			$this->link = new mysqli_connect(	
-												$this->host,
-												$this->user,
-												$this->pass,
-												$this->db
-											);
-			if($this->link->mysqli_errno)
+			$this->link = new mysqli($this->host,$this->user,$this->pass,$this->db);
+			if($this->link->connect_error)
 			{
 				echo "No se pudo conectar a la base de datos: ".$this->link->connect_error;
 			}
 		}
 
 		function configDb(){
-			$config = file_get_contents("./dbconfig.json");
+			$config = json_decode(
+									file_get_contents("dbconfig.json",FILE_USE_INCLUDE_PATH),true
+								);
 			$this->host = $config['host'];
 			$this->db = $config['db'];
 			$this->user = $config['user'];
 			$this->pass = $config['pass'];
 		}
 
-		function getInstance(){
+		public static function getInstance(){
 			if(!(self::$instance instanceof self)){
 				self::$instance = new self();
 			}
 			return self::$instance;
 		}
 
-		function obtenerCambios($query){
-			$result = $link->query($query);
+		public function obtenerCambios($query){
+			$result = $this->link->query($query);
+			$index = 0;
 			while($unCambio = $result->fetch_assoc()){
 
-				$nombreCategoria = ($this->obtenerInfoCambio($unCambio['idCategoria'],'categoria','idCategoria'))['nombre'];
-				$nombreImpacto = ($this->obtenerInfoCambio($unCambio['idImpacto'],'impacto','idImpacto'))['nombre'];
-				$nombreEstado = ($this->obtenerInfoCambio($unCambio['idEstado'],'estado','idEstado'))['nombre'];
-				$nombrePrioridad = ($this->obtenerInfoCambio($unCambio['idPrioridad'],'prioridad','idPrioridad'))['nombre'];
-				$nombreSysExterno = ($this->obtenerInfoCambio($unCambio['idSysExterno'],'sysexterno','idSysExterno'))['nombre'];
+				$nombreCategoria = ($this->obtenerInfoCambio($unCambio['fk_idCategoria'],'categoria','idCategoria'))['nombre'];
+				$nombreImpacto = ($this->obtenerInfoCambio($unCambio['fk_idImpacto'],'impacto','idImpacto'))['nombre'];
+				$nombreEstado = ($this->obtenerInfoCambio($unCambio['fk_idEstado'],'estado','idEstado'))['nombre'];
+				$nombrePrioridad = ($this->obtenerInfoCambio($unCambio['fk_idPrioridad'],'prioridad','idPrioridad'))['nombre'];
+				$nombreSysExterno = ($this->obtenerInfoCambio($unCambio['fk_idSysExterno'],'sysexterno','idSysExterno'))['nombre'];
 
 
 				$cambio = Cambio::create()
@@ -69,20 +72,26 @@ require_once("../Model/Cambio.php");
 				->setFechaDeVencimiento($unCambio['fechaDeVencimiento'])
 				->setFechaDeImplementacion($unCambio['fechaDeImplementacion'])
 				->setAsignadoA($unCambio['asignadoA'])
-				->setObservacion($unCambio['observacion']);
+				->setObservacion($unCambio['observacion'])
+				->setCategoria(new Categoria($unCambio['fk_idCategoria'],$nombreCategoria))
+				->setImpacto(new Impacto($unCambio['fk_idImpacto'],$nombreImpacto))
+				->setEstado(new Estado($unCambio['fk_idEstado'],$nombreEstado))
+				->setPrioridad(new Prioridad($unCambio['fk_idPrioridad'],$nombrePrioridad))
+				->setSysExterno(new SysExterno($unCambio['fk_idSysExterno'],$nombreSysExterno));
 
-
-
+				$arrayCambios[$index] = $cambio;
+				$index++;
 			}
+			return $arrayCambios;
 		}
 
-		function obtenerInfoCambio($id,$tabla,$key){
+		public function obtenerInfoCambio($id,$tabla,$key){
 			$query = "SELECT * FROM ".$tabla." WHERE ".$key." = ".$id." LIMIT 1";
 			return ($this->link->query($query))->fetch_assoc();
 
 		}
 
-		function obtenerUsuarios($query){
+		public function obtenerUsuarios($query){
 
 		}
 

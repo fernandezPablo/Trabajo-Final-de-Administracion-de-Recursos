@@ -21,7 +21,8 @@ class Cambio{
 
 
 	function __construct()
-	{}
+	{
+	}
 
 	/*
 		Sirve para crear objetos de esta clase con asignacion 
