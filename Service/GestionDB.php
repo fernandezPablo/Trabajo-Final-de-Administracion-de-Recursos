@@ -53,15 +53,7 @@ require_once("../Model/SysExterno.php");
 		public function obtenerCambios($query){
 			$result = $this->link->query($query);
 			$index = 0;
-			while($unCambio = $result->fetch_assoc()){
-
-				$nombreCategoria = ($this->obtenerInfoCambio($unCambio['fk_idCategoria'],'categoria','idCategoria'))['nombre'];
-				$nombreImpacto = ($this->obtenerInfoCambio($unCambio['fk_idImpacto'],'impacto','idImpacto'))['nombre'];
-				$nombreEstado = ($this->obtenerInfoCambio($unCambio['fk_idEstado'],'estado','idEstado'))['nombre'];
-				$nombrePrioridad = ($this->obtenerInfoCambio($unCambio['fk_idPrioridad'],'prioridad','idPrioridad'))['nombre'];
-				$nombreSysExterno = ($this->obtenerInfoCambio($unCambio['fk_idSysExterno'],'sysexterno','idSysExterno'))['nombre'];
-
-
+			while($unCambio = $result->fetch_assoc()){		
 				$cambio = Cambio::create()
 				->setIdCambio($unCambio['idCambio'])
 				->setDescripcion($unCambio['descripcion'])
@@ -73,22 +65,16 @@ require_once("../Model/SysExterno.php");
 				->setFechaDeImplementacion($unCambio['fechaDeImplementacion'])
 				->setAsignadoA($unCambio['asignadoA'])
 				->setObservacion($unCambio['observacion'])
-				->setCategoria(new Categoria($unCambio['fk_idCategoria'],$nombreCategoria))
-				->setImpacto(new Impacto($unCambio['fk_idImpacto'],$nombreImpacto))
-				->setEstado(new Estado($unCambio['fk_idEstado'],$nombreEstado))
-				->setPrioridad(new Prioridad($unCambio['fk_idPrioridad'],$nombrePrioridad))
-				->setSysExterno(new SysExterno($unCambio['fk_idSysExterno'],$nombreSysExterno));
+				->setCategoria(new Categoria($unCambio['fk_idCategoria'],$unCambio['nombreCategoria']))
+				->setImpacto(new Impacto($unCambio['fk_idImpacto'],$unCambio['nombreImpacto']))
+				->setEstado(new Estado($unCambio['fk_idEstado'],$unCambio['nombreEstado']))
+				->setPrioridad(new Prioridad($unCambio['fk_idPrioridad'],$unCambio['nombrePrioridad']))
+				->setSysExterno(new SysExterno($unCambio['fk_idSysExterno'],$unCambio['nombreSysexterno']));
 
 				$arrayCambios[$index] = $cambio;
 				$index++;
 			}
 			return $arrayCambios;
-		}
-
-		public function obtenerInfoCambio($id,$tabla,$key){
-			$query = "SELECT * FROM ".$tabla." WHERE ".$key." = ".$id." LIMIT 1";
-			return ($this->link->query($query))->fetch_assoc();
-
 		}
 
 		public function obtenerUsuarios($query){

@@ -69,17 +69,25 @@
 					<div class="panel panel-default">
 
 						<div class="panel-body">
+							
+							<?php 
+								if(isset($_GET['cambio'])){
+									$cambio = (OperadorController::getDetalleCambio($_GET['cambio']))[0];
+								}
+							 ?>
 							<div class="row"> <!--FILA2-->
 								<div class="col-md-12">
-									<p class="text-info">DESCRIPCION</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia minus earum sed tenetur. Labore inventore doloremque veritatis, eum magni nostrum quo amet quod velit animi fugit ipsam temporibus maiores voluptatem!</p>
-									<br>
-									<p class="text-info">MOTIVO</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur sint magnam quas vitae, perspiciatis, sit quibusdam laboriosam temporibus, nesciunt doloribus omnis cum, repellendus nobis illum. Error id incidunt, natus consequuntur.</p>
-									<br>
-									<p class="text-info">PROPOSITO</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque architecto eos, earum inventore, mollitia suscipit ea hic quo, sed perspiciatis natus. Numquam deleniti illo maxime sequi qui dolor, atque voluptatem.</p>
-									<br>
+									
+									<?php 									 
+										if(isset($_GET['cambio'])){
+											echo "<p class='text-info'>DESCRIPCION</p>";
+											echo "<p>".$cambio->getDescripcion()."</p>";
+											echo "<br><p class='text-info'>MOTIVO</p>";
+											echo "<p>".$cambio->getMotivo()."</p>";
+											echo "<br><p class='text-info'>PROPOSITO</p>";
+											echo "<p>".$cambio->getProposito()."</p><br>";	
+										}
+									?>
 								</div>							
 							</div>
 								
@@ -96,24 +104,16 @@
 								</div>
 
 								<div class="col-md-6 ">
-									<p class="text-right">Luna, Sixto</p>
-									<p class="text-right">5 dias
-										<?php  ?>
-									</p>
-									<p class="text-right">30/10/16
-										<?php  ?>
-									</p>
-									<p class="text-right"><?php  ?>
-									</p>
-									<p class="text-right">PC001
-										<?php  ?>
-									</p>
-									<p class="text-right">BAJA
-										<?php  ?>
-									</p>
-									<p class="text-right text-danger">ALTA
-										<?php  ?>
-									</p>
+									<?php 
+									if(isset($_GET['cambio'])){
+										echo "<p class='text-right'>".$cambio->getNombreSolicitante()."</p>";
+										echo "<p class='text-right'>".$cambio->getTiempoEstimado()."</p>";
+										echo "<p class='text-right'>".$cambio->getFechaDeVencimiento()."</p>";
+										echo "<p class='text-right'>---</p>";
+										echo "<p class='text-right'>".$cambio->getImpacto()->getNombreImpacto()."</p>";
+										echo "<p class='text-right'>".$cambio->getPrioridad()->getNombrePrioridad()."</p>";
+									}
+									 ?>
 								</div>
 								
 							</div>
