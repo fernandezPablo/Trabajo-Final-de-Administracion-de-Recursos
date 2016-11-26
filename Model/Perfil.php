@@ -2,28 +2,28 @@
 
 class Perfil{
 
-	private $idPerfil;
-	private $nombrePerfil;
+	private $_idPerfil;
+	private $_nombrePerfil;
 
 	function __construct($idPerfil,$nombrePerfil){
-		$this->idPerfil = $idPerfil;
-		$this->nombrePerfil = $nombrePerfil;
+		$this->_idPerfil = $idPerfil;
+		$this->_nombrePerfil = $nombrePerfil;
 	}
 
 	public function getIdPerfil(){
-		return $this->idPerfil;
+		return $this->_idPerfil;
 	}
 
 	public function setIdPerfil($idPerfil){
-		$this->idPerfil = $idPerfil;
+		$this->_idPerfil = $idPerfil;
 	}
 
 	public function getNombrePerfil(){
-		return $this->nombrePerfil;	
+		return $this->_nombrePerfil;	
 	}
 
 	public function setNombrePerfil($nombrePerfil){
-		$this->nombrePerfil = $nombrePerfil;
+		$this->_nombrePerfil = $nombrePerfil;
 	}
 
 }

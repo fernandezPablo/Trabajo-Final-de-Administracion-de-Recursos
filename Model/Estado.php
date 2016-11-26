@@ -1,30 +1,30 @@
 <?php 
 class Estado{
 
-	private $idEstado;
-	private $nombreEstado;
+	private $_idEstado;
+	private $_nombreEstado;
 
 
 	function __construct($idEstado,$nombreEstado)
 	{
-		$this->idEstado = $idEstado;
-		$this->nombreEstado = $nombreEstado;
+		$this->_idEstado = $idEstado;
+		$this->_nombreEstado = $nombreEstado;
 	}
 
 	public function getIdEstado(){
-		return $this->idEstado;
+		return $this->_idEstado;
 	}
 
 	public function setIdEstado($idEstado){
-		$this->idEstado = $idEstado;
+		$this->_idEstado = $idEstado;
 	}
 
 	public function getNombreEstado(){
-		return $this->nombreEstado;
+		return $this->_nombreEstado;
 	}
 
 	public function setNombreEstado($nombreEstado){
-		$this->nombreEstado = $nombreEstado;
+		$this->_nombreEstado = $nombreEstado;
 	}
 
 }

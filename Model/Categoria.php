@@ -1,30 +1,30 @@
 <?php 
 class Categoria{
 
-	private $idCategoria;
-	private $nombreCategoria;
+	private $_idCategoria;
+	private $_nombreCategoria;
 
 
 	function __construct($idCategoria,$nombreCategoria)
 	{
-		$this->idCategoria = $idCategoria;
-		$this->nombreCategoria = $nombreCategoria;
+		$this->_idCategoria = $idCategoria;
+		$this->_nombreCategoria = $nombreCategoria;
 	}
 
 	public function getIdCategoria(){
-		return $this->idCategoria;
+		return $this->_idCategoria;
 	}
 
 	public function setIdCategoria($idCategoria){
-		$this->idCategoria = $idCategoria;
+		$this->_idCategoria = $idCategoria;
 	}
 
 	public function getNombreCategoria(){
-		return $this->nombreCategoria;
+		return $this->_nombreCategoria;
 	}
 
 	public function setNombreCategoria($nombreCategoria){
-		$this->nombreCategoria = $nombreCategoria;
+		$this->_nombreCategoria = $nombreCategoria;
 	}
 
 }

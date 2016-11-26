@@ -1,30 +1,30 @@
 <?php 
 class Impacto{
 
-	private $idImpacto;
-	private $nombreImpacto;
+	private $_idImpacto;
+	private $_nombreImpacto;
 
 
 	function __construct($idImpacto,$nombreImpacto)
 	{
-		$this->idImpacto = $idImpacto;
-		$this->nombreImpacto = $nombreImpacto;
+		$this->_idImpacto = $idImpacto;
+		$this->_nombreImpacto = $nombreImpacto;
 	}
 
 	public function getIdImpacto(){
-		return $this->idImpacto;
+		return $this->_idImpacto;
 	}
 
 	public function setIdImpacto($idImpacto){
-		$this->idImpacto = $idImpacto;
+		$this->_idImpacto = $idImpacto;
 	}
 
 	public function getNombreImpacto(){
-		return $this->nombreImpacto;
+		return $this->_nombreImpacto;
 	}
 
 	public function setNombreImpacto($nombreImpacto){
-		$this->nombreImpacto = $nombreImpacto;
+		$this->_nombreImpacto = $nombreImpacto;
 	}
 
 }

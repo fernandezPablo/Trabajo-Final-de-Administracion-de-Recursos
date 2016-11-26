@@ -9,11 +9,11 @@ require_once("../Model/SysExterno.php");
 
 	class GestionDB{
 
-		private $host;
-		private $db;
-		private $user;
-		private $pass;
-		private $link;
+		private $_host;
+		private $_db;
+		private $_user;
+		private $_pass;
+		private $_link;
 
 		static $instance;
 
@@ -26,10 +26,10 @@ require_once("../Model/SysExterno.php");
 
 		function connect(){
 			$this->configDb();
-			$this->link = new mysqli($this->host,$this->user,$this->pass,$this->db);
-			if($this->link->connect_error)
+			$this->_link = new mysqli($this->_host,$this->_user,$this->_pass,$this->_db);
+			if($this->_link->connect_error)
 			{
-				echo "No se pudo conectar a la base de datos: ".$this->link->connect_error;
+				echo "No se pudo conectar a la base de datos: ".$this->_link->connect_error;
 			}
 		}
 
@@ -37,10 +37,10 @@ require_once("../Model/SysExterno.php");
 			$config = json_decode(
 									file_get_contents("dbconfig.json",FILE_USE_INCLUDE_PATH),true
 								);
-			$this->host = $config['host'];
-			$this->db = $config['db'];
-			$this->user = $config['user'];
-			$this->pass = $config['pass'];
+			$this->_host = $config['host'];
+			$this->_db = $config['db'];
+			$this->_user = $config['user'];
+			$this->_pass = $config['pass'];
 		}
 
 		public static function getInstance(){
@@ -51,7 +51,7 @@ require_once("../Model/SysExterno.php");
 		}
 
 		public function obtenerCambios($query){
-			$result = $this->link->query($query);
+			$result = $this->_link->query($query);
 			$index = 0;
 			while($unCambio = $result->fetch_assoc()){		
 				$cambio = Cambio::create()

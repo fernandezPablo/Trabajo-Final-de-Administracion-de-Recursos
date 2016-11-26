@@ -1,30 +1,30 @@
 <?php 
 class Prioridad{
 
-	private $idPrioridad;
-	private $nombrePrioridad;
+	private $_idPrioridad;
+	private $_nombrePrioridad;
 
 
 	function __construct($idPrioridad,$nombrePrioridad)
 	{
-		$this->idPrioridad = $idPrioridad;
-		$this->nombrePrioridad = $nombrePrioridad;
+		$this->_idPrioridad = $idPrioridad;
+		$this->_nombrePrioridad = $nombrePrioridad;
 	}
 
 	public function getIdPrioridad(){
-		return $this->idPrioridad;
+		return $this->_idPrioridad;
 	}
 
 	public function setIdPrioridad($idPrioridad){
-		$this->idPrioridad = $idPrioridad;
+		$this->_idPrioridad = $idPrioridad;
 	}
 
 	public function getNombrePrioridad(){
-		return $this->nombrePrioridad;
+		return $this->_nombrePrioridad;
 	}
 
 	public function setNombrePrioridad($nombrePrioridad){
-		$this->nombrePrioridad = $nombrePrioridad;
+		$this->_nombrePrioridad = $nombrePrioridad;
 	}
 
 }

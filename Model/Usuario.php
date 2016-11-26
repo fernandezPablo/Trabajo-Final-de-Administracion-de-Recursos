@@ -1,50 +1,59 @@
 <?php 
 class Usuario{
 
-	private $idUsuario;
-	private $apellidoYNombre;
-	private $nombreUsuario;
-	private $pass;
-	private $perfil;
+	private $_idUsuario;
+	private $_apellidoYNombre;
+	private $_nombreUsuario;
+	private $_pass;
+	private $_perfil;
 
-	function __construct($apellidoYNombre,$nombreUsuario,$pass,$perfil)
+	function __construct($idUsuario,$apellidoYNombre,$nombreUsuario,$pass,$perfil)
 	{
-		$this->apellidoYNombre = $apellidoYNombre;
-		$this->nombreUsuario = $nombreUsuario;
-		$this->pass = $pass;
-		$this->perfil = $perfil;
+		$this->_idUsuario = $idUsuario;
+		$this->_apellidoYNombre = $apellidoYNombre;
+		$this->_nombreUsuario = $nombreUsuario;
+		$this->_pass = $pass;
+		$this->_perfil = $perfil;
+	}
+
+	public function getIdUsuario(){
+		return $this->_idUsuario;
+	}
+
+	public function setIdUsuario($idUsuario){
+		$this->_idUsuario = $idUsuario;
 	}
 
 	public function getApellidoYNombre(){
-		return $this->apellidoYNombre;
+		return $this->_apellidoYNombre;
 	}
 
 	public function setApellidoYNombre($apellidoYNombre){
-		$this->apellidoYNombre = $apellidoYNombre;
+		$this->_apellidoYNombre = $apellidoYNombre;
 	}
 
 	public function getNombreUsuario(){
-		return $this->nombreUsuario;
+		return $this->_nombreUsuario;
 	}
 
 	public function setNombreUsuario($nombreUsuario){
-		$this->nombreUsuario = $nombreUsuario;
+		$this->_nombreUsuario = $nombreUsuario;
 	}
 
 	public function getpass(){
-		return $this->pass;
+		return $this->_pass;
 	}
 
 	public function setPass($pass){
-		$this->pass = $pass;
+		$this->_pass = $pass;
 	}
 
 	public function getPerfil(){
-		return $this->perfil;
+		return $this->_perfil;
 	}
 
 	public function setPerfil($perfil){
-		$this->perfil = $perfil;
+		$this->_perfil = $perfil;
 	}
 
 }

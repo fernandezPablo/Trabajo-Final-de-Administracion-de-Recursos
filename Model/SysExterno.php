@@ -1,30 +1,30 @@
 <?php 
 class SysExterno{
 
-	private $idSysExterno;
-	private $nombreSysExterno;
+	private $_idSysExterno;
+	private $_nombreSysExterno;
 
 
 	function __construct($idSysExterno,$nombreSysExterno)
 	{
-		$this->idSysExterno = $idSysExterno;
-		$this->nombreSysExterno = $nombreSysExterno;
+		$this->_idSysExterno = $idSysExterno;
+		$this->_nombreSysExterno = $nombreSysExterno;
 	}
 
 	public function getIdSysExterno(){
-		return $this->idSysExterno;
+		return $this->_idSysExterno;
 	}
 
 	public function setIdSysExterno($idSysExterno){
-		$this->idSysExterno = $idSysExterno;
+		$this->_idSysExterno = $idSysExterno;
 	}
 
 	public function getNombreSysExterno(){
-		return $this->nombreSysExterno;
+		return $this->_nombreSysExterno;
 	}
 
 	public function setNombreSysExterno($nombreSysExterno){
-		$this->nombreSysExterno = $nombreSysExterno;
+		$this->_nombreSysExterno = $nombreSysExterno;
 	}
 
 }

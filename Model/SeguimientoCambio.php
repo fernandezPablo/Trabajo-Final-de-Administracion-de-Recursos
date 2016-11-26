@@ -1,10 +1,10 @@
 <?php 
 class SeguimientoCambio{
 	
-	private $idSegCambio;
-	private $fechaCambioEstado;
-	private $cambio;
-	private $estado;
+	private $_idSegCambio;
+	private $_fechaCambioEstado;
+	private $_cambio;
+	private $_estado;
 
 	function __construct()
 	{}
@@ -15,36 +15,36 @@ class SeguimientoCambio{
 	} 
 
 	public function getIdSegCambio(){
-		return $this->idSegCambio;
+		return $this->_idSegCambio;
 	}
 
 	public function setIdSegCambio($idSegCambio){
-		$this->SeguimientoCambio = $idSegCambio;
+		$this->_SeguimientoCambio = $idSegCambio;
 	}
 	public function getFechaCambioEstado(){
-		return $this->fechaCambioEstado;
+		return $this->_fechaCambioEstado;
 	}
 
 	public function setFechaCambioEstado(){
-		$this->fechaCambioEstado;
+		$this->_fechaCambioEstado;
 		return $this;
 	}
 
 	public function getCambio(){
-		return $this->cambio;
+		return $this->_cambio;
 	}
 
 	public function setCambio($cambio){
-		$this->getCambio;
+		$this->_cambio;
 		return $this;
 	}
 
 	public function getEstado(){
-		return $this->estado;
+		return $this->_estado;
 	}
 
 	public fucntion setEstado($estado){
-		$this->estado = $estado;
+		$this->_estado = $estado;
 		return $this;
 	}
 
