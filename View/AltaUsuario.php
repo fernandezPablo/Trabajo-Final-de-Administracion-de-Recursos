@@ -1,12 +1,16 @@
-<form action="" method="POST" role="form" class="form-horizontal"	>
-	<p id="title" name="nuevousuario">NUEVO USUARIO</p>
+<p id="title" name="nuevousuario">NUEVO USUARIO</p>
 	<hr>
+<?php 
+	require "../Controller/UsuarioController.php";
+	if(!isset($_POST['ayn'])):
+ ?>
+<form id="altaUsuario" action="./panelAdministrador.php?page=nuevousuario" method="POST" role="form" class="form-horizontal">
 	<div class="form-group">
 		<label for="ayn" class="col-md-3 control-label">
 			Apellido y Nombre
 		</label>
 		<div class="col-md-6">
-			<input type="text" id="ayn" class="form-control" autofocus>
+			<input type="text" id="ayn" name="ayn" class="form-control" autofocus>
 		</div>
 	</div>
 	<br>
@@ -15,7 +19,7 @@
 			Usuario
 		</label>
 		<div class="col-md-6">
-			<input type="text" id="user" class="form-control">
+			<input type="text" id="user" name="user" class="form-control">
 		</div>
 	</div>
 	<br>
@@ -24,7 +28,7 @@
 			Contraseña
 		</label>
 		<div class="col-md-6">
-			<input type="password" id="pass" class="form-control">
+			<input type="password" id="pass" name="pass" class="form-control">
 		</div>
 	</div>
 	<br>
@@ -33,7 +37,7 @@
 			Confirmar Contraseña
 		</label>
 		<div class="col-md-6">
-			<input type="password" id="pass_confirm" class="form-control">
+			<input type="password" id="pass_confirm" name="pass_confirm" class="form-control">
 		</div>
 	</div>
 	<br>
@@ -42,15 +46,15 @@
 			Perfil
 		</label>
 		<div class="col-md-6">
-			<select name="" id="input" class="form-control">
-				<option value="">
+			<select name="perfil" id="perfil" class="form-control">
+				<option value="0">
 					-- Seleccione el perfil --
 				</option>
-				<option value="">
-					Operador
-				</option>
-				<option value="">
+				<option value="1">
 					Administrador
+				</option>
+				<option value="2">
+					Operador
 				</option>
 			</select>
 		</div>
@@ -65,3 +69,13 @@
 		</div>
 	</div>
 </form>
+<br><br>
+<div id="alerta" class="col-md-8 col-md-offset-1 text-center alert"></div>
+<?php else: 
+	if(UsuarioController::altaDeUsuario($_POST['ayn'],$_POST['user'],$_POST['pass'],$_POST['perfil'])):	
+?>
+	<div class="text-center alert alert-success"> USUARIO REGISTRADO</div>
+<?php else: ?>
+	<div class="text-center alert alert-danger"> PROBLEMAS CON EL REGISTRO!</div>
+<?php endif ?>
+<?php endif ?>

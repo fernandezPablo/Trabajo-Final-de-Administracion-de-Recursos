@@ -8,6 +8,12 @@ $(document).ready(function(){
 	});
 	$("p#title_usuarios").click(function(){hiddenList("2",$(this));
 	});
+
+	$("form#altaUsuario").submit(function(){
+		if(!verifyData()){ 
+			return false;
+		}
+	});
 });
 
 function hiddenList(area,$item){
@@ -22,4 +28,37 @@ function hiddenList(area,$item){
 			$item.children().addClass("fa-chevron-up");
 		}
 	});
+}
+
+function verifyData(){
+	var $nomyape = $("input#ayn");
+	var $usuario = $("input#user");
+	var $pass = $("input#pass");
+	var $passConfirm = $("input#pass_confirm");
+	var $idPerfil = $("select#perfil");
+	if($nomyape.val() != "" 
+		&& $usuario.val() != "" 
+		&& $pass.val() != "" 
+		&& $passConfirm.val() != ""
+		&& $idPerfil[0].selectedIndex != "0"
+		){
+		if($pass.val() === $passConfirm.val()){
+			console.log("DATOS VALIDADOS");
+			return true;
+		}
+		else{
+			console.log("LAS CONTRASEÑAS NO COINCIDEN!");
+			$alerta = $("div#alerta");	
+			$alerta.addClass("alert-danger");
+			$alerta.text("LAS CONTRASEÑAS NO COINCIDEN!");
+			return false;
+		}
+		
+	}
+	else{
+		$alerta = $("div#alerta");	
+		$alerta.addClass("alert-danger");
+		$alerta.text("FALTAN COMPLETAR CAMPOS OBLIGATORIOS!");		
+		return false;
+	}
 }

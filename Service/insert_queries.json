@@ -1,0 +1,3 @@
+{
+	"altaUsuario" : "INSERT INTO usuario (nombreUsuario, pass, apellidoNombre, fk_idPerfil) VALUES (?,?,?,?)"
+}

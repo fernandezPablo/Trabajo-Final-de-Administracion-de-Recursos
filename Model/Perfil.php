@@ -5,9 +5,12 @@ class Perfil{
 	private $_idPerfil;
 	private $_nombrePerfil;
 
-	function __construct($idPerfil,$nombrePerfil){
-		$this->_idPerfil = $idPerfil;
-		$this->_nombrePerfil = $nombrePerfil;
+	function __construct(){
+	}
+
+	public static function create(){
+		$instance = new self();
+		return $instance;
 	}
 
 	public function getIdPerfil(){
@@ -16,6 +19,7 @@ class Perfil{
 
 	public function setIdPerfil($idPerfil){
 		$this->_idPerfil = $idPerfil;
+		return $this;
 	}
 
 	public function getNombrePerfil(){
@@ -24,6 +28,7 @@ class Perfil{
 
 	public function setNombrePerfil($nombrePerfil){
 		$this->_nombrePerfil = $nombrePerfil;
+		return $this;
 	}
 
 }

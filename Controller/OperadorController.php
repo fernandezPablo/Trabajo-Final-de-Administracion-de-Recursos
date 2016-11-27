@@ -1,11 +1,11 @@
 <?php 
 
-	require_once("../Service/GestionDB.php");
+	require "../Service/GestionDB.php";
 
 	class OperadorController{
 
 		/**
-		 * @return [array]
+		 * @return array Cambio
 		 */
 		static function getListadoCambiosPeticion(){
 			$jsonFile = file_get_contents("../Service/select_queries.json",FILE_USE_INCLUDE_PATH);
@@ -15,8 +15,8 @@
 		}
 		
 		/**
-		 * @param  [type]
-		 * @return [type]
+		 * @param  int $id identificador del cambio
+		 * @return array Cambio
 		 */
 		static function getDetalleCambio($id){
 			$jsonFile = file_get_contents("./../Service/select_queries.json",FILE_USE_INCLUDE_PATH);

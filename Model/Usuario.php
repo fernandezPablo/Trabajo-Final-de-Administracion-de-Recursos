@@ -7,9 +7,8 @@ class Usuario{
 	private $_pass;
 	private $_perfil;
 
-	function __construct($idUsuario,$apellidoYNombre,$nombreUsuario,$pass,$perfil)
+	function __construct($apellidoYNombre,$nombreUsuario,$pass,$perfil)
 	{
-		$this->_idUsuario = $idUsuario;
 		$this->_apellidoYNombre = $apellidoYNombre;
 		$this->_nombreUsuario = $nombreUsuario;
 		$this->_pass = $pass;
@@ -40,7 +39,7 @@ class Usuario{
 		$this->_nombreUsuario = $nombreUsuario;
 	}
 
-	public function getpass(){
+	public function getPass(){
 		return $this->_pass;
 	}
 

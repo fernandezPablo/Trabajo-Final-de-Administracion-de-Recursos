@@ -1,11 +1,11 @@
 <?php 
 
-require_once("../Model/Cambio.php");
-require_once("../Model/Estado.php");
-require_once("../Model/Impacto.php");
-require_once("../Model/Categoria.php");
-require_once("../Model/Prioridad.php");
-require_once("../Model/SysExterno.php");
+require "../Model/Cambio.php";
+require "../Model/Estado.php";
+require "../Model/Impacto.php";
+require "../Model/Categoria.php";
+require "../Model/Prioridad.php";
+require "../Model/SysExterno.php";
 
 	class GestionDB{
 
@@ -79,6 +79,37 @@ require_once("../Model/SysExterno.php");
 
 		public function obtenerUsuarios($query){
 
+		}
+
+		/**
+		 * [altaUsuario description]
+		 * @param  Usuario $usuario usuario a dar de alta
+		 * @return boolean         devuelve true si se guardo correctamente la info del usuario, caso contrario devuelve false
+		 */
+		public function altaUsuario($usuario){
+			
+			$jsonString = file_get_contents("insert_queries.json",FILE_USE_INCLUDE_PATH);
+			$query = (json_decode($jsonString,true))['altaUsuario'];
+			$nombreUsuario = $usuario->getNombreUsuario();
+			$pass = password_hash($usuario->getPass(),PASSWORD_BCRYPT);
+			$ayn = $usuario->getApellidoYNombre();
+			$idPerfil = $usuario->getPerfil()->getIdPerfil();
+			$sentencia = $this->_link->prepare($query);
+			if($pass){
+				if(
+					$sentencia->bind_param('ssss',$nombreUsuario,$pass,$ayn,$idPerfil)
+					)
+				{
+				
+					return $sentencia->execute();
+				}
+				else {
+					return false;
+				}
+			}
+			else {
+				return false;
+			}
 		}
 
 	}
