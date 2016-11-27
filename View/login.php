@@ -21,19 +21,32 @@
 				</div>
 
 				<div class="col-md-3 col-md-offset-1 panel panel-default " id="login">
-					<form action="#" method="POST" role="form">
+					<form action="login.php" method="POST" role="form">
 						<div class="form-group">
 							<i class="fa fa-user-o" aria-hidden="true"></i>
 							<label for="user" class="text-primary">Usuario</label>
-							<input type="text" class="form-control" id="user" autofocus="">
+							<input type="text" class="form-control" id="user" name="user" autofocus="">
 							<br>
 							<i class="fa fa-key" aria-hidden="true"></i>
 							<label for="pass" class="text-primary">Contraseña</label>
-							<input type="password" class="form-control" id="pass" placeholder="">
+							<input type="password" class="form-control" id="pass" name="pass">
 						</div>
 							<br>
 							<button type="INGRESAR" class="btn btn-primary btn-block">INGRESAR</button>
 					</form>
+					<br>
+					<?php 
+						require "../Controller/UsuarioController.php";
+
+						if(isset($_POST['user']) && isset($_POST['pass'])){
+							if(UsuarioController::login($_POST['user'],$_POST['pass'])){
+								echo "<div class='text-center alert alert-success'>LOGIN EXITOSO!</div>";
+							}
+							else{
+								echo "<div class='text-center alert alert-danger'>ERROR: LOGIN INCORRECTO!</div>";
+							}
+						}
+					 ?>
 				</div>
 			</div>
 		</div>

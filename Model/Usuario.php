@@ -54,7 +54,6 @@ class Usuario{
 	public function setPerfil($perfil){
 		$this->_perfil = $perfil;
 	}
-
 }
 
  ?>

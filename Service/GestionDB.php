@@ -69,7 +69,7 @@ require "../Model/SysExterno.php";
 				->setImpacto(new Impacto($unCambio['fk_idImpacto'],$unCambio['nombreImpacto']))
 				->setEstado(new Estado($unCambio['fk_idEstado'],$unCambio['nombreEstado']))
 				->setPrioridad(new Prioridad($unCambio['fk_idPrioridad'],$unCambio['nombrePrioridad']))
-				->setSysExterno(new SysExterno($unCambio['fk_idSysExterno'],$unCambio['nombreSysexterno']));
+				->setSysExterno(new SysExterno($unCambioambio['fk_idSysExterno'],$unCambio['nombreSysexterno']));
 
 				$arrayCambios[$index] = $cambio;
 				$index++;
@@ -77,8 +77,22 @@ require "../Model/SysExterno.php";
 			return $arrayCambios;
 		}
 
-		public function obtenerUsuarios($query){
-
+		public function obtenerUsuario($nombreUsuario){
+			$jsonString = file_get_contents("select_queries.json",FILE_USE_INCLUDE_PATH);
+			$query = (json_decode($jsonString,true))['unUsuario'];
+			$sentencia = $this->_link->prepare($query);
+			$sentencia->bind_param('s',$nombreUsuario);
+			if($sentencia->execute()){
+				if($resultado = $sentencia->get_result())
+				{
+					while ($fila = $resultado->fetch_assoc()) {
+						$usuario = new Usuario($fila['apellidoNombre'],$fila['nombreUsuario'],$fila['pass'],
+							Perfil::create()->setIdPerfil($fila['fk_idPerfil'])->setNombrePerfil($fila['nombrePerfil']));
+					}
+					return $usuario;
+				}
+			}
+			return false;
 		}
 
 		/**
