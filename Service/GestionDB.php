@@ -79,7 +79,7 @@ require "../Model/SysExterno.php";
 
 		public function obtenerUsuario($nombreUsuario){
 			$jsonString = file_get_contents("select_queries.json",FILE_USE_INCLUDE_PATH);
-			$query = (json_decode($jsonString,true))['unUsuario'];
+			$query = json_decode($jsonString,true)['unUsuario'];
 			$sentencia = $this->_link->prepare($query);
 			$sentencia->bind_param('s',$nombreUsuario);
 			if($sentencia->execute()){
@@ -103,7 +103,7 @@ require "../Model/SysExterno.php";
 		public function altaUsuario($usuario){
 			
 			$jsonString = file_get_contents("insert_queries.json",FILE_USE_INCLUDE_PATH);
-			$query = (json_decode($jsonString,true))['altaUsuario'];
+			$query = json_decode($jsonString,true)['altaUsuario'];
 			$nombreUsuario = $usuario->getNombreUsuario();
 			$pass = password_hash($usuario->getPass(),PASSWORD_BCRYPT);
 			$ayn = $usuario->getApellidoYNombre();
