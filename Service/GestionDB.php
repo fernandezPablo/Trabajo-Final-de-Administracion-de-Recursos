@@ -140,6 +140,14 @@ require "../Model/SysExterno.php";
 			}
 		}
 
+		public function bajaUsuario($nombreUsuario) {
+			$jsonString = file_get_contents("delete_queries.json",FILE_USE_INCLUDE_PATH);
+			$query = json_decode($jsonString,true)['bajaUsuario'];
+			$sentencia = $this->_link->prepare($query);
+			$sentencia->bind_param('s',$nombreUsuario);
+			$sentencia->execute();
+		}
+
 	}
 
  ?>

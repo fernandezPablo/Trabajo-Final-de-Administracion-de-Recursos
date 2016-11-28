@@ -29,6 +29,14 @@ class UsuarioController{
 		return false;
 	}
 
+	public static function bajaDeUsuario($nombreUsuario) {
+
+		$db = GestionDB::getInstance();
+
+		$db->bajaUsuario($nombreUsuario);
+		
+	}
+
 }
 
  ?>

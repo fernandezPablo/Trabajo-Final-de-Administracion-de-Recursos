@@ -1,0 +1,3 @@
+{
+	"bajaUsuario" : "DELETE FROM usuario WHERE nombreUsuario = ?"
+}

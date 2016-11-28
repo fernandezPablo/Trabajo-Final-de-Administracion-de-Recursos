@@ -24,7 +24,7 @@
 			<td><?php echo $usuario->getApellidoYNombre(); ?></td>
 			<td><?php echo $usuario->getPerfil()->getNombrePerfil(); ?></td>
 			<th>
-				<a href="">Eliminar</a>
+				<a href=>Eliminar</a> <!--Debería llamar a una funcion bajaDeUsuario de ControladorUsuario()-->
 			</th>
 		</tr>
 
