@@ -72,7 +72,7 @@
 							
 							<?php 
 								if(isset($_GET['cambio'])){
-									$cambio = (OperadorController::getDetalleCambio($_GET['cambio']))[0];
+									$cambio = OperadorController::getDetalleCambio($_GET['cambio'])[0];
 								}
 							 ?>
 							<div class="row"> <!--FILA2-->

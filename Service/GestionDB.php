@@ -69,7 +69,7 @@ require "../Model/SysExterno.php";
 				->setImpacto(new Impacto($unCambio['fk_idImpacto'],$unCambio['nombreImpacto']))
 				->setEstado(new Estado($unCambio['fk_idEstado'],$unCambio['nombreEstado']))
 				->setPrioridad(new Prioridad($unCambio['fk_idPrioridad'],$unCambio['nombrePrioridad']))
-				->setSysExterno(new SysExterno($unCambioambio['fk_idSysExterno'],$unCambio['nombreSysexterno']));
+				->setSysExterno(new SysExterno($unCambio['fk_idSysExterno'],$unCambio['nombreSysexterno']));
 
 				$arrayCambios[$index] = $cambio;
 				$index++;
@@ -77,9 +77,23 @@ require "../Model/SysExterno.php";
 			return $arrayCambios;
 		}
 
+		public function obtenerTodosLosUsuarios($query) {
+			$result = $this->_link->query($query);
+			$index = 0;
+
+			while($unUsuario = $result->fetch_assoc()){		
+				$usuario = new Usuario($unUsuario['apellidoNombre'],$unUsuario['nombreUsuario'],$unUsuario['pass'],
+							Perfil::create()->setIdPerfil($unUsuario['idPerfil'])->setNombrePerfil($unUsuario['nombrePerfil']));
+				
+				$arrayUsuarios[$index] = $usuario;
+				$index++;
+			}
+			return $arrayUsuarios;
+		}
+
 		public function obtenerUsuario($nombreUsuario){
 			$jsonString = file_get_contents("select_queries.json",FILE_USE_INCLUDE_PATH);
-			$query = (json_decode($jsonString,true))['unUsuario'];
+			$query = json_decode($jsonString,true)['unUsuario'];
 			$sentencia = $this->_link->prepare($query);
 			$sentencia->bind_param('s',$nombreUsuario);
 			if($sentencia->execute()){
@@ -103,7 +117,7 @@ require "../Model/SysExterno.php";
 		public function altaUsuario($usuario){
 			
 			$jsonString = file_get_contents("insert_queries.json",FILE_USE_INCLUDE_PATH);
-			$query = (json_decode($jsonString,true))['altaUsuario'];
+			$query = json_decode($jsonString,true)['altaUsuario'];
 			$nombreUsuario = $usuario->getNombreUsuario();
 			$pass = password_hash($usuario->getPass(),PASSWORD_BCRYPT);
 			$ayn = $usuario->getApellidoYNombre();
