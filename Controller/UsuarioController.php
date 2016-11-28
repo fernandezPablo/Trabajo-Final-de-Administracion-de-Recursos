@@ -32,7 +32,7 @@ class UsuarioController{
 	}
 
 
-	public static function bajaDeUsuario($nombreUsuario) {
+	public static function EliminarUsuario($nombreUsuario) {
 
 		$db = GestionDB::getInstance();
 
