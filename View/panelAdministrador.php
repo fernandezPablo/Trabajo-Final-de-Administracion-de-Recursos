@@ -1,3 +1,17 @@
+<?php
+	require "../Controller/UsuarioController.php";
+
+	if(isset($_COOKIE['user']) && isset($_COOKIE['hash']) && isset($_COOKIE['perfil'])){
+		if(UsuarioController::verificarUsuario($_COOKIE['user'],$_COOKIE['hash'],'ADMINISTRADOR')){
+			$nombreUsuario = $_COOKIE['user'];
+			$nombrePerfil = $_COOKIE['perfil'];		
+		}
+	}
+	else{
+		UsuarioController::redirect("LOGIN");
+	}
+
+ ?>
 <!DOCTYPE html>
 <html lang="">
 	<head>
@@ -40,7 +54,8 @@
 							case 'cambios':
 								if(isset($_GET['estado'])){
 									
-									include("http://localhost/mis_sitios/tfar/View/tablaCambios.php?estado=".$_GET['estado']);
+									include ("http://localhost/mis_sitios/tfar/View/tablaCambios.php?estado=".$_GET['estado']);
+
 									#include("http://localhost/proyFinal/View/tablaCambios.php?estado=".$_GET['estado']);
 								}
 								else{
@@ -65,9 +80,10 @@
 							case 'eliminarusuario':
 									
 								include("./BajaUsuario.php");
-								#header("Location:./paneladministrador.php");
 								break;
-								
+							case 'logout':
+								UsuarioController::logout();
+								break;
 							default:
 								include("http://localhost/tfar/View/tablaCambios.php?estado=aceptado");
 								#include("http://localhost/proyFinal/View/tablaCambios.php?estado=aceptado");

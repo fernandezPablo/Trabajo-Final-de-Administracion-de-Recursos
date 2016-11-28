@@ -1,7 +1,4 @@
-<?php 
-	require "../Controller/UsuarioController.php";
 
- ?>
 <p id="title" name="eliminarusuario">ELIMINAR USUARIO</p>
 <hr>
 <table class="table table-condensed table-hover panel-default panel">
@@ -24,7 +21,7 @@
 			<td><?php echo $usuario->getApellidoYNombre(); ?></td>
 			<td><?php echo $usuario->getPerfil()->getNombrePerfil(); ?></td>
 			<th>
-				<a href=>Eliminar</a> <!--Debería llamar a una funcion bajaDeUsuario de ControladorUsuario()-->
+				<a href="#">Eliminar</a> <!--Debería llamar a una funcion bajaDeUsuario de ControladorUsuario()-->
 			</th>
 		</tr>
 

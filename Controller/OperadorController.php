@@ -1,7 +1,5 @@
 <?php 
 
-	require "../Service/GestionDB.php";
-
 	class OperadorController{
 
 		/**

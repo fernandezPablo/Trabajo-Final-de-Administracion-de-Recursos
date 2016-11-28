@@ -1,3 +1,15 @@
+<?php 
+	require "../Controller/UsuarioController.php";
+
+	if(isset($_COOKIE['user']) && isset($_COOKIE['hash']) && isset($_COOKIE['perfil'])){
+		if($_COOKIE['perfil'] === 'ADMINISTRADOR'){
+			UsuarioController::redirect('ADMINISTRADOR');
+		}
+		else if($_COOKIE['perfil'] === 'OPERADOR'){
+			UsuarioController::redirect('OPERADOR');
+		}
+	}
+ ?>
 <!DOCTYPE html>
 <html lang="ES">
 	<head>
@@ -36,8 +48,6 @@
 					</form>
 					<br>
 					<?php 
-						require "../Controller/UsuarioController.php";
-
 						if(isset($_POST['user']) && isset($_POST['pass'])){
 							if(UsuarioController::login($_POST['user'],$_POST['pass'])){
 								echo "<div class='text-center alert alert-success'>LOGIN EXITOSO!</div>";
