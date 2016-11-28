@@ -1,7 +1,5 @@
 <?php 
-	include("../Model/Usuario.php");
-	include("../Model/Perfil.php");
-
+	require "../Controller/UsuarioController.php";
 
  ?>
 <p id="title" name="eliminarusuario">ELIMINAR USUARIO</p>
@@ -16,32 +14,23 @@
 		</tr>
 	</thead>
 	<tbody>
+
+	<?php 
+		$arrayUsuarios = UsuarioController::listadoUsuarios();
+		foreach ($arrayUsuarios as $usuario) {
+	 ?>
 		<tr>
-			<td>LunaSixto</td>
-			<td>Luna, Sixto</td>
-			<td>Operador</td>
+			<td><?php echo $usuario->getNombreUsuario(); ?></td>
+			<td><?php echo $usuario->getApellidoYNombre(); ?></td>
+			<td><?php echo $usuario->getPerfil()->getNombrePerfil(); ?></td>
 			<th>
 				<a href="">Eliminar</a>
 			</th>
 		</tr>
 
-		<tr>
-			<td>Josdan23</td>
-			<td>Yapura, Jose Daniel</td>
-			<td>Operador</td>
-			<th>
-				<a href="">Eliminar</a>
-			</th>
-		</tr>
+	<?php } ?>
 
-		<tr>
-			<td>fernadezP</td>
-			<td>Fernandez, Pablo</td>
-			<td>Administrador</td>
-			<th>
-				<a href="">Eliminar</a>
-			</th>
-		</tr>
+		
 
 	</tbody>
 </table>

@@ -14,9 +14,8 @@ class UsuarioController{
 	public static function listadoUsuarios() {
 		$jsonFile = file_get_contents("../Service/select_queries.json",FILE_USE_INCLUDE_PATH);
 		$query = json_decode($jsonFile,true)['todosLosUsuarios'];
-		var_dump($query);
 		$db = GestionDB::getInstance();
-		return $db->obtenerTodosLosUsuarios($query);
+		return  $db->obtenerTodosLosUsuarios($query);
 	}
 
 	public static function login($nombreUsuario,$pass){
