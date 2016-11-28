@@ -1,9 +1,3 @@
-<?php 
-	include("../Model/Usuario.php");
-	include("../Model/Perfil.php");
-
-
- ?>
 <p id="title" name="eliminarusuario">ELIMINAR USUARIO</p>
 <hr>
 <table class="table table-condensed table-hover panel-default panel">

@@ -1,7 +1,6 @@
 <p id="title" name="nuevousuario">NUEVO USUARIO</p>
 	<hr>
 <?php 
-	require "../Controller/UsuarioController.php";
 	if(!isset($_POST['ayn'])):
  ?>
 <form id="altaUsuario" action="./panelAdministrador.php?page=nuevousuario" method="POST" role="form" class="form-horizontal">

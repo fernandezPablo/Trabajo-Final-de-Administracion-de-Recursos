@@ -14,12 +14,53 @@ class UsuarioController{
 	public static function login($nombreUsuario,$pass){
 		$db = GestionDB::getInstance();
 		if($usuario = $db->obtenerUsuario($nombreUsuario)){
-			$pass_hash = password_hash($pass,PASSWORD_BCRYPT);
-			if(password_verify($pass,$usuario->getPass())){
-				return true;
+			if(password_verify($pass,$usuario->getPass())){	
+				setcookie('user',$usuario->getNombreUsuario(),time()+(60*60));
+				setcookie('hash',$usuario->getpass(),time()+(60*60));
+				setcookie('perfil',$usuario->getPerfil()->getNombrePerfil(),time()+(60*60));
+				UsuarioController::redirect($usuario->getPerfil()->getNombrePerfil());
 			}
 		}
 		return false;
+	}
+
+	public static function logout(){
+		setcookie('user','',time()-(60*60));
+		setcookie('hash','',time()-(60*60));
+		setcookie('perfil','',time()-(60*60));
+		UsuarioController::redirect('LOGIN');
+	}
+
+
+	public static function verificarUsuario($nombreUsuario,$hash,$nombrePerfil){
+		$db = GestionDB::getInstance();
+		if($usuario = $db->obtenerUsuario($nombreUsuario)){
+			if($usuario->getpass() == $hash){
+				if($usuario->getPerfil()->getNombrePerfil() == $nombrePerfil){
+					return true;
+				}
+				else{
+					UsuarioController::redirect($usuario->getPerfil()->getNombrePerfil());
+				}
+			}
+			else{
+				UsuarioController::redirect("LOGIN");
+			}
+		}
+		return false;
+	}
+
+	public static function redirect($nombrePerfil){
+		switch ($nombrePerfil) {
+			case 'ADMINISTRADOR':
+				echo "<script type=text/javascript> window.location.href= './panelAdministrador.php' </script>";
+				break;	
+			case 'OPERADOR':
+				echo "<script type=text/javascript> window.location.href= './paneloperador.php' </script>";
+				break;
+			default:
+				echo "<script type=text/javascript> window.location.href= './login.php' </script>";
+		}
 	}
 
 }

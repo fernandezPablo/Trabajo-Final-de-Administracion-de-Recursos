@@ -1,3 +1,21 @@
+<?php 
+	require "../Controller/UsuarioController.php";
+
+	if(isset($_GET['page']) && $_GET['page'] === 'logout'){
+		UsuarioController::logout();
+	}
+
+	if(isset($_COOKIE['user']) && isset($_COOKIE['hash']) && isset($_COOKIE['perfil'])){
+		if(UsuarioController::verificarUsuario($_COOKIE['user'],$_COOKIE['hash'],'OPERADOR')){
+			$nombreUsuario = $_COOKIE['user'];
+			$nombrePerfil = $_COOKIE['perfil'];		
+		}
+	}
+	else{
+		UsuarioController::redirect("LOGIN");
+	}
+
+ ?>
 <!DOCTYPE html>
 <html lang="">
 	<head>

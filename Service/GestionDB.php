@@ -69,7 +69,7 @@ require "../Model/SysExterno.php";
 				->setImpacto(new Impacto($unCambio['fk_idImpacto'],$unCambio['nombreImpacto']))
 				->setEstado(new Estado($unCambio['fk_idEstado'],$unCambio['nombreEstado']))
 				->setPrioridad(new Prioridad($unCambio['fk_idPrioridad'],$unCambio['nombrePrioridad']))
-				->setSysExterno(new SysExterno($unCambioambio['fk_idSysExterno'],$unCambio['nombreSysexterno']));
+				->setSysExterno(new SysExterno($unCambio['fk_idSysExterno'],$unCambio['nombreSysexterno']));
 
 				$arrayCambios[$index] = $cambio;
 				$index++;
