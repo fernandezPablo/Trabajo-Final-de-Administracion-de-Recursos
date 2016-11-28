@@ -39,7 +39,7 @@
 						switch ($_GET['page']) {
 							case 'cambios':
 								if(isset($_GET['estado'])){
-									include("http://localhost/mis_sitios/tfar/View/tablaCambios.php?estado=".$_GET['estado']);
+									include "http://localhost/mis_sitios/tfar/View/tablaCambios.php?estado=".$_GET['estado'];
 									#include("http://localhost/proyFinal/View/tablaCambios.php?estado=".$_GET['estado']);
 								}
 								else{
