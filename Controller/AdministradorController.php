@@ -1,6 +1,6 @@
 <?php 
 
-	require "../Service/GestionDB.php";
+	#require "../Service/GestionDB.php";
 
 class AdministradorController{
 

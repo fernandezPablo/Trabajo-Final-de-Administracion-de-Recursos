@@ -29,6 +29,11 @@
 				break;
 		}
 	}
+	else{
+		echo "<p id='title' name='aceptado'>CAMBIOS ACEPTADOS</p>";
+		$arrayCambios = AdministradorController::getCambios(AdministradorController::CAMBIOS_ACEPTADOS);
+	}
+
 	if(count($arrayCambios)>0){
 
  ?>

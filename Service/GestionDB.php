@@ -7,7 +7,7 @@ require "../Model/Categoria.php";
 require "../Model/Prioridad.php";
 require "../Model/SysExterno.php";
 
-	class GestionDB{
+class GestionDB{
 
 		private $_host;
 		private $_db;
