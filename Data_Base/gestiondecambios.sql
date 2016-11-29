@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2016 a las 00:44:31
+-- Tiempo de generación: 29-11-2016 a las 05:04:46
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 7.0.10
 
@@ -51,11 +51,11 @@ CREATE TABLE `cambio` (
 --
 
 INSERT INTO `cambio` (`idCambio`, `descripcion`, `motivo`, `proposito`, `tiempoEstimado`, `nombreSolicitante`, `fechaDeVencimiento`, `fechaDeImplementacion`, `asignadoA`, `equipo`, `observacion`, `fk_idCategoria`, `fk_idImpacto`, `fk_idEstado`, `fk_idPrioridad`, `fk_idSysExterno`, `fk_idUsuario`) VALUES
-(1, 'CAMBIO #1', 'MOTIVO #1', 'PROPOSITO #1', 5, 'HOMERO SIMPSON', '2016-11-24 00:00:00', NULL, 'NED FLANDERES', NULL, NULL, 1, 2, 1, 2, 1, 2),
-(2, 'CAMBIO #2', 'MOTIVO #2', 'PROPOSITO #2', 5, 'BART SIMPSON', '2016-11-30 00:00:00', NULL, 'NED FLANDERES', NULL, NULL, 1, 2, 1, 2, 1, 2),
-(3, 'CAMBIO #3', 'MOTIVO #3', 'PROPOSITO #3', 10, 'MARGE SIMPSON', '2016-11-27 00:00:00', NULL, 'NED FLANDERES', NULL, NULL, 1, 2, 1, 2, 1, 2),
-(4, 'CAMBIO #4', 'MOTIVO #4', 'PROPOSITO #4', 2, 'LISA SIMPSON', '2016-11-21 00:00:00', NULL, 'NED FLANDERES', NULL, NULL, 1, 2, 1, 2, 1, 2),
-(5, 'CAMBIO #5', 'MOTIVO #5', 'PROPOSITO #5', 5, 'HOMERO SIMPSON', '2016-11-24 00:00:00', NULL, 'NED FLANDERES', NULL, NULL, 1, 2, 2, 2, 1, 2);
+(1, 'CAMBIO #1', 'MOTIVO #1', 'PROPOSITO #1', 5, 'HOMERO SIMPSON', '2016-11-24 00:00:00', NULL, 'NED FLANDERES', NULL, NULL, 1, 2, 1, 2, 1, 1),
+(2, 'CAMBIO #2', 'MOTIVO #2', 'PROPOSITO #2', 5, 'BART SIMPSON', '2016-11-30 00:00:00', NULL, 'NED FLANDERES', NULL, NULL, 1, 2, 1, 2, 1, 1),
+(3, 'CAMBIO #3', 'MOTIVO #3', 'PROPOSITO #3', 10, 'MARGE SIMPSON', '2016-11-27 00:00:00', NULL, 'NED FLANDERES', NULL, NULL, 1, 2, 8, 2, 1, 1),
+(4, 'CAMBIO #4', 'MOTIVO #4', 'PROPOSITO #4', 2, 'LISA SIMPSON', '2016-11-21 00:00:00', NULL, 'NED FLANDERES', NULL, NULL, 1, 2, 4, 2, 1, 1),
+(5, 'CAMBIO #5', 'MOTIVO #5', 'PROPOSITO #5', 5, 'HOMERO SIMPSON', '2016-11-24 00:00:00', NULL, 'NED FLANDERES', NULL, NULL, 1, 2, 2, 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -218,8 +218,12 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `nombreUsuario`, `pass`, `apellidoNombre`, `fk_idPerfil`) VALUES
-(1, 'PFERNANDEZ', '33577', 'PABLO FERNANDEZ', 1),
-(2, 'JPEREZ', '4444', 'JUAN PEREZ', 2);
+(1, 'USUARIO_ELIMINADO', '$2y$10$qgNGxwBYxBa/ogbEvPtaguwOXZZa4LlQEjOZMB8iy2iHyUmK4sEwS', 'USUARIO ELIMINADO', 2),
+(7, 'mrodriguez', '$2y$10$2SOERiu/sX8puQmZrv0cu.8BW2Iihpu4Lco8rMU490Z7AS6KPJDRm', 'Manuel Rodriguez', 2),
+(8, 'jriquelme', '$2y$10$/dD/oZ2ILkcxaCPiy9qDvOOHgKUx/CuNf4QSYevD4.3XLMHmHVha.', 'Riquelme Juan', 1),
+(9, 'pfernandez', '$2y$10$bAEkCkuCUM4oXy7AHVUwzOMgFp6GZ.mYT9bn1tFnsdoTInaE83bDm', 'Fernandez Pablo', 1),
+(11, 'dyapura', '$2y$10$2McE4YyneGN0ycpjNh.Bx.NsKcLFzCnAnu9YniNSdt0FSLiNpKgiO', 'Yapura Daniel', 1),
+(15, 'sluna', '$2y$10$SBu0RStqLesDg5rGfrzG.uA845CqZbXReBColUoXuobl/ggBnzLvS', 'Luna Sixto', 2);
 
 --
 -- Índices para tablas volcadas
@@ -345,7 +349,7 @@ ALTER TABLE `sysexterno`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idUsuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- Restricciones para tablas volcadas
 --
