@@ -50,29 +50,42 @@ require "../Model/SysExterno.php";
 			return self::$instance;
 		}
 
-		public function obtenerCambios($query){
-			$result = $this->_link->query($query);
-			$index = 0;
-			while($unCambio = $result->fetch_assoc()){		
-				$cambio = Cambio::create()
-				->setIdCambio($unCambio['idCambio'])
-				->setDescripcion($unCambio['descripcion'])
-				->setMotivo($unCambio['motivo'])
-				->setProposito($unCambio['proposito'])
-				->setTiempoEstimado($unCambio['tiempoEstimado'])
-				->setNombreSolicitante($unCambio['nombreSolicitante'])
-				->setFechaDeVencimiento($unCambio['fechaDeVencimiento'])
-				->setFechaDeImplementacion($unCambio['fechaDeImplementacion'])
-				->setAsignadoA($unCambio['asignadoA'])
-				->setObservacion($unCambio['observacion'])
-				->setCategoria(new Categoria($unCambio['fk_idCategoria'],$unCambio['nombreCategoria']))
-				->setImpacto(new Impacto($unCambio['fk_idImpacto'],$unCambio['nombreImpacto']))
-				->setEstado(new Estado($unCambio['fk_idEstado'],$unCambio['nombreEstado']))
-				->setPrioridad(new Prioridad($unCambio['fk_idPrioridad'],$unCambio['nombrePrioridad']))
-				->setSysExterno(new SysExterno($unCambio['fk_idSysExterno'],$unCambio['nombreSysexterno']));
+		/**
+		 * [Obtienes cambios de la base de datos gestioncambios]
+		 * @param  [string] $query [consulta a la base de datos]
+		 * @param  [string] $param [parametros a vincular en la consulta]
+		 * @return [array]        [devuelve un array con los cambios extraidos de la db]
+		 */
+		public function obtenerCambios($query,$param){
 
-				$arrayCambios[$index] = $cambio;
-				$index++;
+			$arrayCambios = array();
+			$sentencia = $this->_link->prepare($query);
+			$sentencia->bind_param('s',$param);
+			if($sentencia->execute()){
+				if($result = $sentencia->get_result()){
+					$index = 0;
+					while($unCambio = $result->fetch_assoc()){		
+						$cambio = Cambio::create()
+						->setIdCambio($unCambio['idCambio'])
+						->setDescripcion($unCambio['descripcion'])
+						->setMotivo($unCambio['motivo'])
+						->setProposito($unCambio['proposito'])
+						->setTiempoEstimado($unCambio['tiempoEstimado'])
+						->setNombreSolicitante($unCambio['nombreSolicitante'])
+						->setFechaDeVencimiento($unCambio['fechaDeVencimiento'])
+						->setFechaDeImplementacion($unCambio['fechaDeImplementacion'])
+						->setAsignadoA($unCambio['asignadoA'])
+						->setObservacion($unCambio['observacion'])
+						->setCategoria(new Categoria($unCambio['fk_idCategoria'],$unCambio['nombreCategoria']))
+						->setImpacto(new Impacto($unCambio['fk_idImpacto'],$unCambio['nombreImpacto']))
+						->setEstado(new Estado($unCambio['fk_idEstado'],$unCambio['nombreEstado']))
+						->setPrioridad(new Prioridad($unCambio['fk_idPrioridad'],$unCambio['nombrePrioridad']))
+						->setSysExterno(new SysExterno($unCambio['fk_idSysExterno'],$unCambio['nombreSysexterno']));
+
+						$arrayCambios[$index] = $cambio;
+						$index++;
+					}
+				}
 			}
 			return $arrayCambios;
 		}

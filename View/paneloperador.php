@@ -33,7 +33,7 @@
 	<body>
 		
 		<?php 
-			require_once("../Controller/OperadorController.php");
+			require "../Controller/OperadorController.php";
 			include("./commonHeader.php");
 		 ?>
 		
@@ -44,34 +44,39 @@
 				<div class="col-md-6">
 
 					<h4>Solicitudes de Cambio</h4>
-					
-					<div class="table-striped table-responsive panel panel-default">
-						<table class="table table-hover">
-							<thead>
-								<tr>
-									<th class="text-center">Id Cambio</th>
-									<th class="text-center">Origen</th>
-									<th class="text-center">Solicitante</th>
-									<th class="text-center">Vencmiento</th>
-									<th class="text-center">Prioridad</th>
-								</tr>
-							</thead>
-							<tbody>
-							<?php 
-								$arrayCambios= OperadorController::getListadoCambiosPeticion();
-								for($i=0;$i<count($arrayCambios);$i++){
-									echo "<tr class='fila'>";
-									echo "<td>".$arrayCambios[$i]->getIdCambio()."</td>";
-									echo "<td>".$arrayCambios[$i]->getSysExterno()->getNombreSysExterno()."</td>";
-									echo "<td>".$arrayCambios[$i]->getNombreSolicitante()."</td>";
-									echo "<td>".$arrayCambios[$i]->getFechaDeVencimiento()."</td>";
-									echo "<td>".$arrayCambios[$i]->getPrioridad()->getNombrePrioridad()."</td>";
-									echo "</tr>";
+					<?php 
+						$arrayCambios= OperadorController::getListadoCambiosPeticion();
+						if(count($arrayCambios)>0){
+					 ?>
+							<div class="table-striped table-responsive panel panel-default">
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th class="text-center">Id Cambio</th>
+											<th class="text-center">Origen</th>
+											<th class="text-center">Solicitante</th>
+											<th class="text-center">Vencmiento</th>
+											<th class="text-center">Prioridad</th>
+										</tr>
+									</thead>
+									<tbody>
+					<?php 
+										$arraySize = count($arrayCambios);
+										for($i=0;$i<$arraySize;$i++){
+											echo "<tr class='fila'>";
+											echo "<td>".$arrayCambios[$i]->getIdCambio()."</td>";
+											echo "<td>".$arrayCambios[$i]->getSysExterno()->getNombreSysExterno()."</td>";
+											echo "<td>".$arrayCambios[$i]->getNombreSolicitante()."</td>";
+											echo "<td>".$arrayCambios[$i]->getFechaDeVencimiento()."</td>";
+											echo "<td>".$arrayCambios[$i]->getPrioridad()->getNombrePrioridad()."</td>";
+											echo "</tr>";
+										}
+										echo "</tbody></table></div>";
+									}
+								else{
+									echo "<div class='text-center alert alert-info'>NO HAY CAMBIOS</div>";
 								}
 							 ?>
-							</tbody>
-						</table>
-					</div>
 				</div>
 				<div class="col-md-6">
 
