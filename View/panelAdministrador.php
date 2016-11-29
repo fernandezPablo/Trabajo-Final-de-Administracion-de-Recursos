@@ -82,7 +82,7 @@
 						}
 					}
 					else{
-						include("http://localhost/mis_sitios/tfar/View/tablaCambios.php?estado=aceptado");
+						include("./tablaCambios.php");
 						#include("http://localhost/mis_sitios/proyFinal/View/tablaCambios.php?estado=aceptado");
 					}
 					 ?>
