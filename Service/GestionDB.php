@@ -1,11 +1,11 @@
 <?php 
 
-require "../Model/Cambio.php";
-require "../Model/Estado.php";
-require "../Model/Impacto.php";
-require "../Model/Categoria.php";
-require "../Model/Prioridad.php";
-require "../Model/SysExterno.php";
+require_once "../Model/Cambio.php";
+require_once "../Model/Estado.php";
+require_once "../Model/Impacto.php";
+require_once "../Model/Categoria.php";
+require_once "../Model/Prioridad.php";
+require_once "../Model/SysExterno.php";
 
 	class GestionDB{
 

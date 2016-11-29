@@ -1,5 +1,5 @@
 <?php 
-	require "../Controller/UsuarioController.php";
+	require_once "../Controller/UsuarioController.php";
 
 	if(isset($_GET['page']) && $_GET['page'] === 'logout'){
 		UsuarioController::logout();

@@ -1,5 +1,5 @@
 <?php
-	require "../Controller/UsuarioController.php";
+	require_once "../Controller/UsuarioController.php";
 
 	if(isset($_COOKIE['user']) && isset($_COOKIE['hash']) && isset($_COOKIE['perfil'])){
 		if(UsuarioController::verificarUsuario($_COOKIE['user'],$_COOKIE['hash'],'ADMINISTRADOR')){

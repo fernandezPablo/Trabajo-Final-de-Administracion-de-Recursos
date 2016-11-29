@@ -1,5 +1,5 @@
 <?php 
-	require("../Controller/AdministradorController.php");
+	require_once "../Controller/AdministradorController.php";
 
 	if(isset($_GET['estado'])){
 		switch ($_GET['estado']) {

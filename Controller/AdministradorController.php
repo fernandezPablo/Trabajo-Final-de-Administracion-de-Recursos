@@ -1,6 +1,6 @@
 <?php 
 
-	require "../Service/GestionDB.php";
+	require_once "../Service/GestionDB.php";
 
 class AdministradorController{
 
@@ -16,6 +16,14 @@ class AdministradorController{
 		$jsonString = file_get_contents("./../Service/select_queries.json",FILE_USE_INCLUDE_PATH);
 		$query = json_decode($jsonString,true)['cambios'];
 		
+		return $db->obtenerCambios($query,$estado);
+	}
+
+	public static function historialDeCambio($idCambio) {
+		$db = GestionDB::getInstance();
+		$jsonString = file_get_contents("../../Service/select_queries.json", FILE_USE_INCLUDE_PATH);
+		$query = json_decode($jsonString, true)['cambios'];
+
 		return $db->obtenerCambios($query,$estado);
 	}
 }
