@@ -19,7 +19,7 @@
 		 */
 		static function getDetalleCambio($id){
 			$jsonString = file_get_contents("./../Service/select_queries.json",FILE_USE_INCLUDE_PATH);
-			$query = (json_decode($jsonString,true))['unCambioPeticion'];
+			$query = json_decode($jsonString,true)['unCambioPeticion'];
 			$db = GestionDB::getInstance();
 			return $db->obtenerCambios($query,$id);
 		}
