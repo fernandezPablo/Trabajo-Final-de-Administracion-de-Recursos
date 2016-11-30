@@ -19,12 +19,20 @@ class AdministradorController{
 		return $db->obtenerCambios($query,$estado);
 	}
 
-	public static function historialDeCambio($idCambio) {
+	public static function infoDeCambio($idCambio) {
 		$db = GestionDB::getInstance();
-		$jsonString = file_get_contents("../../Service/select_queries.json", FILE_USE_INCLUDE_PATH);
-		$query = json_decode($jsonString, true)['cambios'];
+		$jsonString = file_get_contents("./../Service/select_queries.json", FILE_USE_INCLUDE_PATH);
+		$query = json_decode($jsonString, true)['unCambioPeticion'];
 
-		return $db->obtenerCambios($query,$estado);
+		return $db->obtenerCambios($query,$idCambio);
+	}
+
+	public static function seguimientoCambio($idCambio) {
+		$db = GestionDB::getInstance();
+		$jsonString = file_get_contents("./../Service/select_queries.json", FILE_USE_INCLUDE_PATH);
+		$query = json_decode($jsonString,true)['historial'];
+
+		return $db->obtenerSeguimiento($query,$idCambio);
 	}
 }
 

@@ -27,16 +27,21 @@
 					
 <?php  
 	if(isset($_POST['buscar'])) {
-		//$cambio = AdministradorController::getCambios($_POST['buscar']);
+		if ($cambio = AdministradorController::infoDeCambio($_POST['buscar'])) {
+		
+			$seguimientoCambio = AdministradorController::seguimientoCambio($_POST['buscar']);
+		
+		
 ?>
 		<div class="row"> <!--RESULTADOS-->
 			<div class="col-md-12">
 				<div class="panel panel-default paddingLateral ">
 					<div class="panel-body">
-						<?php //echo "<p>SOLICITANTE:</p>$cambio->getSysExterno()->getNombre()" ?>
+						<?php echo "<p> <b>SOLICITANTE:</b> ".$cambio[0]->getNombreSolicitante()."</p>"; ?>
 						
-						<p>ORIGEN:</p>
-						<p>PRIORIDAD:</p>
+						<?php  echo "<p> <b>ORIGEN: </b> ".$cambio[0]->getSysExterno()->getNombreSysExterno()."</p>";?>
+						
+						<?php echo "<p><b>PRIORIDAD:</b>".$cambio[0]->getPrioridad()->getNombrePrioridad()."</p>"; ?>
 												
 						<br>
 
@@ -48,31 +53,14 @@
 
 								</tr>
 							</thead>
-							<tbody>				
+							<tbody>	
+
+							<?php foreach ($seguimientoCambio as $seguimiento) { ?>			
 								<tr>
-									<td class="text-center">30/10/16</td>
-									<td class="text-center">APROBADO</td>
+									<td class="text-center"><?php echo $seguimiento->getFechaCambioEstado(); ?></td>
+									<td class="text-center"><?php echo $seguimiento->getEstado()->getNombreEstado(); ?></td>
 								</tr>
-								<tr>
-									<td class="text-center">30/10/16</td>
-									<td class="text-center">APROBADO</td>
-								</tr>
-								<tr>
-									<td class="text-center">30/10/16</td>
-									<td class="text-center">APROBADO</td>
-								</tr>
-								<tr>
-									<td class="text-center">30/10/16</td>
-									<td class="text-center">APROBADO</td>
-								</tr>
-								<tr>
-									<td class="text-center">30/10/16</td>
-									<td class="text-center">APROBADO</td>
-								</tr>
-								<tr>
-									<td class="text-center">30/10/16</td>
-									<td class="text-center">APROBADO</td>
-								</tr>
+							<?php } ?>
 							</tbody>
 						</table>
 					</div>
@@ -81,5 +69,6 @@
 		</div>
 
 <?php 
+		}
 	}	 
 ?>

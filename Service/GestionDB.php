@@ -6,6 +6,7 @@ require_once "../Model/Impacto.php";
 require_once "../Model/Categoria.php";
 require_once "../Model/Prioridad.php";
 require_once "../Model/SysExterno.php";
+require_once "../Model/SeguimientoCambio.php";
 
 	class GestionDB{
 
@@ -161,6 +162,29 @@ require_once "../Model/SysExterno.php";
 			$sentencia->execute();
 		}
 
+
+		public function obtenerSeguimiento($query, $idCambio) {
+			$arraySeguimiento = array();
+			$sentencia = $this->_link->prepare($query);
+			$sentencia->bind_param('s',$idCambio);
+
+			if($sentencia->execute()){
+				if($result = $sentencia->get_result()){
+					$index = 0;
+					while($unSeguimiento = $result->fetch_assoc()){		
+						$seguimiento = SeguimientoCambio::create()
+						->setFechaCambioEstado($unSeguimiento['fechaCambioEstado'])
+						->setEstado(new Estado($unSeguimiento['idEstado'], $unSeguimiento['nombreEstado']));
+
+
+						$arraySeguimiento[$index] = $seguimiento;
+						$index++;
+					}
+				}
+			}
+			return $arraySeguimiento;
+
+		}
 	}
 
  ?>

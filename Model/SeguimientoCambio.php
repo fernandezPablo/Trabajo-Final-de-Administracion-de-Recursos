@@ -9,7 +9,7 @@ class SeguimientoCambio{
 	function __construct()
 	{}
 
-	public function static create(){
+	public static function create(){
 		$instance = new self();
 		return $instance;
 	} 
@@ -25,8 +25,8 @@ class SeguimientoCambio{
 		return $this->_fechaCambioEstado;
 	}
 
-	public function setFechaCambioEstado(){
-		$this->_fechaCambioEstado;
+	public function setFechaCambioEstado($fechaCambioEstado){
+		$this->_fechaCambioEstado = $fechaCambioEstado;
 		return $this;
 	}
 
@@ -43,7 +43,7 @@ class SeguimientoCambio{
 		return $this->_estado;
 	}
 
-	public fucntion setEstado($estado){
+	public function setEstado($estado){
 		$this->_estado = $estado;
 		return $this;
 	}
