@@ -1,0 +1,3 @@
+{
+	"cambiarUsuario" : "UPDATE cambio SET fk_idUsuario = 1 WHERE cambio.idCambio = ?"
+}

@@ -32,11 +32,11 @@ class UsuarioController{
 	}
 
 
-	public static function EliminarUsuario($nombreUsuario) {
+	public static function eliminarUsuario($idUsuario) {
 
 		$db = GestionDB::getInstance();
 
-		$db->bajaUsuario($nombreUsuario);
+		$db->bajaUsuario($idUsuario);
 	}
 		
 	public static function logout(){

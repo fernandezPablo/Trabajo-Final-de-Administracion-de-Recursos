@@ -8,7 +8,7 @@ require_once "../Model/Prioridad.php";
 require_once "../Model/SysExterno.php";
 require_once "../Model/SeguimientoCambio.php";
 
-	class GestionDB{
+class GestionDB{
 
 		private $_host;
 		private $_db;
@@ -98,7 +98,7 @@ require_once "../Model/SeguimientoCambio.php";
 			while($unUsuario = $result->fetch_assoc()){		
 				$usuario = new Usuario($unUsuario['apellidoNombre'],$unUsuario['nombreUsuario'],$unUsuario['pass'],
 							Perfil::create()->setIdPerfil($unUsuario['idPerfil'])->setNombrePerfil($unUsuario['nombrePerfil']));
-				
+				$usuario->setIdUsuario($unUsuario['idUsuario']);
 				$arrayUsuarios[$index] = $usuario;
 				$index++;
 			}
@@ -154,14 +154,14 @@ require_once "../Model/SeguimientoCambio.php";
 			}
 		}
 
-		public function bajaUsuario($nombreUsuario) {
+		public function bajaUsuario($idUsuario) {
+			$this->actualizarCambiosDeUsuario($idUsuario);
 			$jsonString = file_get_contents("delete_queries.json",FILE_USE_INCLUDE_PATH);
 			$query = json_decode($jsonString,true)['bajaUsuario'];
 			$sentencia = $this->_link->prepare($query);
-			$sentencia->bind_param('s',$nombreUsuario);
+			$sentencia->bind_param('s',$idUsuario);
 			$sentencia->execute();
 		}
-
 
 		public function obtenerSeguimiento($query, $idCambio) {
 			$arraySeguimiento = array();
@@ -184,6 +184,26 @@ require_once "../Model/SeguimientoCambio.php";
 			}
 			return $arraySeguimiento;
 
+		}
+		public function actualizarCambiosDeUsuario($idUsuario){
+			$jsonStringSelect = file_get_contents("select_queries.json",FILE_USE_INCLUDE_PATH);
+			$querySelect = json_decode($jsonStringSelect,true)['cambiosDeUsuario'];
+			$sentenciaSelect = $this->_link->prepare($querySelect);
+			
+			$jsonStringUpdate = file_get_contents("update_queries.json",FILE_USE_INCLUDE_PATH);
+			$querUpdate = json_decode($jsonStringUpdate,true)['cambiarUsuario'];
+			$sentenciaUpdate = $this->_link->prepare($querUpdate);
+			
+			$sentenciaSelect->bind_param('s',$idUsuario);
+			
+			if($sentenciaSelect->execute()){
+				if($resultSelect = $sentenciaSelect->get_result()){
+					while($cambio = $resultSelect->fetch_assoc()){			
+						$sentenciaUpdate->bind_param('s',$cambio['idCambio']);
+						$sentenciaUpdate->execute();
+					}
+				}
+			}
 		}
 	}
 
