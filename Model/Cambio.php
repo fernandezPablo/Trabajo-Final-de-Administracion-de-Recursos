@@ -11,6 +11,7 @@ class Cambio{
 	private $_fechaDeVencimiento;
 	private $_fechaDeImplementacion;
 	private $_asignadoA;
+	private $_equipo;
 	private $_observacion;
 	private $_categoria;
 	private $_impacto;
@@ -112,6 +113,15 @@ class Cambio{
 
 	public function setAsignadoA($asignadoA){
 		$this->_asignadoA = $asignadoA;
+		return $this;
+	}
+
+	public function getEquipo(){
+		return $this->_equipo;
+	}
+
+	public function setEquipo($equipo){
+		$this->_equipo = $equipo;
 		return $this;
 	}
 
