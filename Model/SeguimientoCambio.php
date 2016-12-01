@@ -35,7 +35,7 @@ class SeguimientoCambio{
 	}
 
 	public function setCambio($cambio){
-		$this->_cambio;
+		$this->_cambio = $cambio;
 		return $this;
 	}
 

@@ -167,7 +167,7 @@ class GestionDB{
 			$arraySeguimiento = array();
 			$sentencia = $this->_link->prepare($query);
 			$sentencia->bind_param('s',$idCambio);
-
+			var_dump($sentencia);
 			if($sentencia->execute()){
 				if($result = $sentencia->get_result()){
 					$index = 0;
@@ -185,6 +185,7 @@ class GestionDB{
 			return $arraySeguimiento;
 
 		}
+
 		public function actualizarCambiosDeUsuario($idUsuario){
 			$jsonStringSelect = file_get_contents("select_queries.json",FILE_USE_INCLUDE_PATH);
 			$querySelect = json_decode($jsonStringSelect,true)['cambiosDeUsuario'];
@@ -204,6 +205,44 @@ class GestionDB{
 					}
 				}
 			}
+		}
+
+
+		public function obtenerCambiosCerrados($query, $mes) {
+			$fechaInicial= str_replace("@",$mes, "'2016-@-01'");
+			$fechaFinal = str_replace("@",$mes, "'2016-@-30'");
+
+			$queryArmada1 = str_replace("?", $fechaInicial, $query);
+			$queryArmada2 = str_replace("@", $fechaFinal, $queryArmada1);
+			//echo $queryArmada2;
+
+			
+			$sentencia = $this->_link->query($queryArmada2);
+			//$sentencia->bind_param('ss', $fechaInicial, $fechaFinal);
+
+			//if($sentencia->execute()){
+			$cambiosCerrados = array();
+				//if($result = $sentencia->get_result()){
+					$index = 0;
+					while($unSeguimiento = $sentencia->fetch_assoc()){	
+						$cambio = Cambio::create()
+						->setIdCambio($unSeguimiento['idCambio'])
+						->setNombreSolicitante($unSeguimiento['nombreSolicitante'])
+						->setImpacto(new Impacto($unSeguimiento['idImpacto'],$unSeguimiento['nombreImpacto']))
+						->setEstado(new Estado($unSeguimiento['idEstado'],$unSeguimiento['nombreEstado']))
+						->setPrioridad(new Prioridad($unSeguimiento['idPrioridad'],$unSeguimiento['nombrePrioridad']))
+						->setSysExterno(new SysExterno($unSeguimiento['idSysExterno'],$unSeguimiento['nombreSysExterno']));
+
+						$seguimiento = SeguimientoCambio::create()
+						->setFechaCambioEstado($unSeguimiento['fechaCambioEstado'])
+						->setCambio($cambio);
+
+						$cambiosCerrados[$index] = $seguimiento;
+						$index++;
+					}
+				//}
+			//}
+			return $cambiosCerrados;
 		}
 	}
 
