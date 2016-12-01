@@ -76,6 +76,7 @@ class GestionDB{
 						->setFechaDeVencimiento($unCambio['fechaDeVencimiento'])
 						->setFechaDeImplementacion($unCambio['fechaDeImplementacion'])
 						->setAsignadoA($unCambio['asignadoA'])
+						->setEquipo($unCambio['equipo'])
 						->setObservacion($unCambio['observacion'])
 						->setCategoria(new Categoria($unCambio['fk_idCategoria'],$unCambio['nombreCategoria']))
 						->setImpacto(new Impacto($unCambio['fk_idImpacto'],$unCambio['nombreImpacto']))
@@ -252,6 +253,22 @@ class GestionDB{
 				}
 			}
 			return $arrayClasificacion;
+		}
+
+		public function actualizarEstadoCambio($idEstado,$idCambio){
+			$jsonString = file_get_contents("update_queries.json",FILE_USE_INCLUDE_PATH);
+			$query = json_decode($jsonString,true)['actualizarEstado'];
+			$sentencia = $this->_link->prepare($query);
+			$sentencia->bind_param('ss',$idEstado,$idCambio);
+			return $sentencia->execute();
+		}
+
+		public function actualizarImpactoPrioridadCategoria($idCambio,$idImpacto,$idPrioridad,$idCategoria){
+			$jsonString = file_get_contents("update_queries.json",FILE_USE_INCLUDE_PATH);
+			$query = json_decode($jsonString,true)['actualizarPrioridadImpactoCategoria'];
+			$sentencia = $this->_link->prepare($query);
+			$sentencia->bind_param('ssss',$idCategoria,$idPrioridad,$idImpacto,$idCambio);
+			return $sentencia->execute();
 		}
 	}
 
