@@ -2,10 +2,13 @@
 
 	class OperadorController{
 
+		const CAMBIOS_ACEPTADOS = 2;
+		const CAMBIOS_RECHAZADOS = 3;
+
 		/**
 		 * @return array Cambio
 		 */
-		static function getListadoCambiosPeticion(){
+		public static function getListadoCambiosPeticion(){
 
 			$db = GestionDB::getInstance();
 			$jsonString = file_get_contents("./../Service/select_queries.json",FILE_USE_INCLUDE_PATH);
@@ -13,15 +16,39 @@
 			return $db->obtenerCambios($query,'peticion');
 		}
 		
+
 		/**
-		 * @param  int $id identificador del cambio
-		 * @return array Cambio
+		 * Busca un cambio dentro de un array que coincida con el id indicado
+		 * @param  [int]   $id            identificador del cambio que se busca
+		 * @param  [array] $arrayCambios  array en el que se busca el cambio
+		 * @return [Cambio]               Devuelve el cambio dentro de un array de cambios el cual 
+		 *                                coincide con el id solicitado
 		 */
-		static function getDetalleCambio($id){
-			$jsonString = file_get_contents("./../Service/select_queries.json",FILE_USE_INCLUDE_PATH);
-			$query = json_decode($jsonString,true)['unCambioPeticion'];
+		public static function getDetalleCambio($id,$arrayCambios){
+			foreach($arrayCambios as $cambio){
+				if($cambio->getIdCambio() == $id){
+					return $cambio;
+				}
+			}
+			return false;
+		}
+
+		public static function aceptarCambio($idCambio,$idPrioridad,$idImpacto,$idCategoria){
 			$db = GestionDB::getInstance();
-			return $db->obtenerCambios($query,$id);
+			if($db->actualizarImpactoPrioridadCategoria($idCambio,$idPrioridad,$idImpacto,$idCategoria)){
+				if($db->actualizarEstadoCambio(OperadorController::CAMBIOS_ACEPTADOS,$idCambio)){
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public static function rechazarCambio($idCambio){
+			$db = GestionDB::getInstance();
+			if($db->actualizarEstadoCambio(OperadorController::CAMBIOS_RECHAZADOS,$idCambio)){
+				return true;
+			}
+			return false;
 		}
 
 	}
