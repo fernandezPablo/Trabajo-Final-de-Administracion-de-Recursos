@@ -205,6 +205,54 @@ class GestionDB{
 				}
 			}
 		}
+
+		/**
+		 * [Obtiene clasificacicones de propiedades para rellenar la vista de usuario
+		 * 	por ej.: perfil, impacto, categoria, prioridad]
+		 * @param  [string] $propiedad [perfil, impacto, categoria,prioridad]
+		 * @return [Object]            [devuelve una instancia de la clase que se solicita en propiedad]
+		 */
+		public function obtenerClasificacionDe($propiedad){
+			$jsonString = file_get_contents("select_queries.json",FILE_USE_INCLUDE_PATH);
+			$query = json_decode($jsonString,true)[$propiedad];
+			$sentencia = $this->_link->prepare($query);
+			$index = 0;
+			if($sentencia->execute()){
+				if($result = $sentencia->get_result()){
+					switch ($propiedad) {
+						case 'perfil':
+							while($fila = $result->fetch_assoc()){
+								$unPerfil = Perfil::create()->setIdPerfil($fila['idPerfil'])->setNombrePerfil($fila['nombre']);
+								$arrayClasificacion[$index] = $unPerfil;
+								$index++; 
+							}
+							break;
+						case 'impacto':
+							while($fila = $result->fetch_assoc()){
+								$unImpacto = new Impacto($fila['idImpacto'],$fila['nombre']);
+								$arrayClasificacion[$index] = $unImpacto;
+								$index++; 
+							}
+							break;
+						case 'categoria':
+							while($fila = $result->fetch_assoc()){
+								$unaCategoria = new Categoria($fila['idCategoria'],$fila['nombre']);
+								$arrayClasificacion[$index] = $unaCategoria;
+								$index++; 
+							}
+							break;	
+						case 'prioridad':
+							while($fila = $result->fetch_assoc()){
+								$unaPrioridad = new Prioridad($fila['idPrioridad'],$fila['nombre']);
+								$arrayClasificacion[$index] = $unaPrioridad;
+								$index++; 
+							}
+							break;
+					}
+				}
+			}
+			return $arrayClasificacion;
+		}
 	}
 
  ?>
