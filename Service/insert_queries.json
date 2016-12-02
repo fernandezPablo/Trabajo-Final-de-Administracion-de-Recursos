@@ -1,5 +1,5 @@
 {
 	"altaUsuario" : "INSERT INTO usuario (nombreUsuario, pass, apellidoNombre, fk_idPerfil) VALUES (?,?,?,?)",
-	"altaCambio": "INSERT INTO cambio (descripcion, motivo, proposito, tiempoEstimado, nombreSolicitante, fechaDeVencimiento, equipo, fk_idImpacto, fk_idEstado, fk_idPrioridad, fk_idSysExterno) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+	"altaCambio": "INSERT INTO cambio (descripcion, motivo, proposito, tiempoEstimado, nombreSolicitante, fechaDeVencimiento, equipo, fk_idImpacto, fk_idEstado,  fk_idPrioridad, fk_idSysExterno) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
 	"nuevoSeguimiento": "INSERT INTO seguimientoCambio (fechaCambioEstado,fk_idCambio,fk_idEstado) VALUES(?,?,?)"
 }
