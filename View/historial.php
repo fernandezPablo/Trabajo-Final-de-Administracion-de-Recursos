@@ -41,7 +41,7 @@
 						
 						<?php  echo "<p> <b>ORIGEN: </b> ".$cambio[0]->getSysExterno()->getNombreSysExterno()."</p>";?>
 						
-						<?php echo "<p><b>PRIORIDAD:</b>".$cambio[0]->getPrioridad()->getNombrePrioridad()."</p>"; ?>
+						<?php echo "<p><b>PRIORIDAD: </b>".$cambio[0]->getPrioridad()->getNombrePrioridad()."</p>"; ?>
 												
 						<br>
 

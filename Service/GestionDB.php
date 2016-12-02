@@ -76,6 +76,7 @@ class GestionDB{
 						->setFechaDeVencimiento($unCambio['fechaDeVencimiento'])
 						->setFechaDeImplementacion($unCambio['fechaDeImplementacion'])
 						->setAsignadoA($unCambio['asignadoA'])
+						->setEquipo($unCambio['equipo'])
 						->setObservacion($unCambio['observacion'])
 						->setCategoria(new Categoria($unCambio['fk_idCategoria'],$unCambio['nombreCategoria']))
 						->setImpacto(new Impacto($unCambio['fk_idImpacto'],$unCambio['nombreImpacto']))
@@ -167,7 +168,7 @@ class GestionDB{
 			$arraySeguimiento = array();
 			$sentencia = $this->_link->prepare($query);
 			$sentencia->bind_param('s',$idCambio);
-			var_dump($sentencia);
+			
 			if($sentencia->execute()){
 				if($result = $sentencia->get_result()){
 					$index = 0;
@@ -207,7 +208,6 @@ class GestionDB{
 			}
 		}
 
-
 		public function obtenerCambiosInforme($query, $mes, $estado) {
 			$fechaInicial= str_replace("@",$mes, "'2016-@-01'");
 			$fechaFinal = str_replace("@",$mes, "'2016-@-30'");
@@ -238,6 +238,71 @@ class GestionDB{
 				//}
 			//}
 			return $cambiosCerrados;
+		}
+
+		/**
+		 * [Obtiene clasificacicones de propiedades para rellenar la vista de usuario
+		 * 	por ej.: perfil, impacto, categoria, prioridad]
+		 * @param  [string] $propiedad [perfil, impacto, categoria,prioridad]
+		 * @return [Object]            [devuelve una instancia de la clase que se solicita en propiedad]
+		 */
+		public function obtenerClasificacionDe($propiedad){
+			$jsonString = file_get_contents("select_queries.json",FILE_USE_INCLUDE_PATH);
+			$query = json_decode($jsonString,true)[$propiedad];
+			$sentencia = $this->_link->prepare($query);
+			$index = 0;
+			if($sentencia->execute()){
+				if($result = $sentencia->get_result()){
+					switch ($propiedad) {
+						case 'perfil':
+							while($fila = $result->fetch_assoc()){
+								$unPerfil = Perfil::create()->setIdPerfil($fila['idPerfil'])->setNombrePerfil($fila['nombre']);
+								$arrayClasificacion[$index] = $unPerfil;
+								$index++; 
+							}
+							break;
+						case 'impacto':
+							while($fila = $result->fetch_assoc()){
+								$unImpacto = new Impacto($fila['idImpacto'],$fila['nombre']);
+								$arrayClasificacion[$index] = $unImpacto;
+								$index++; 
+							}
+							break;
+						case 'categoria':
+							while($fila = $result->fetch_assoc()){
+								$unaCategoria = new Categoria($fila['idCategoria'],$fila['nombre']);
+								$arrayClasificacion[$index] = $unaCategoria;
+								$index++; 
+							}
+							break;	
+						case 'prioridad':
+							while($fila = $result->fetch_assoc()){
+								$unaPrioridad = new Prioridad($fila['idPrioridad'],$fila['nombre']);
+								$arrayClasificacion[$index] = $unaPrioridad;
+								$index++; 
+							}
+							break;
+					}
+				}
+			}
+			return $arrayClasificacion;
+		}
+
+		public function actualizarEstadoCambio($idEstado,$idCambio){
+			$jsonString = file_get_contents("update_queries.json",FILE_USE_INCLUDE_PATH);
+			$query = json_decode($jsonString,true)['actualizarEstado'];
+			$sentencia = $this->_link->prepare($query);
+			$sentencia->bind_param('ss',$idEstado,$idCambio);
+			return $sentencia->execute();
+		}
+
+		public function actualizarImpactoPrioridadCategoria($idCambio,$idImpacto,$idPrioridad,$idCategoria){
+			$jsonString = file_get_contents("update_queries.json",FILE_USE_INCLUDE_PATH);
+			$query = json_decode($jsonString,true)['actualizarPrioridadImpactoCategoria'];
+			$sentencia = $this->_link->prepare($query);
+			$sentencia->bind_param('ssss',$idCategoria,$idPrioridad,$idImpacto,$idCambio);
+			return $sentencia->execute();
+
 		}
 	}
 

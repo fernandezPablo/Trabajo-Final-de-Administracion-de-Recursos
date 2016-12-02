@@ -1,8 +1,8 @@
 <?php 
 	require_once "../Controller/AdministradorController.php";
 
-	const ESTADO_CERRADO = "3";
-	const ESTADO_APROBADO = "2";
+	const ESTADO_CERRADO = "8";
+	const ESTADO_APROBADO = "4";
  ?>
 
 <div class="container-fluid">
@@ -96,7 +96,7 @@
 										<th class="small">ORIGEN</th>
 										<th class="small">PRIORIDAD</th>
 										<th class="small">IMPACTO</th>
-										<th class="small">APROBADO POR</th>
+										<th class="small">FECHA APROBADO</th>
 									</tr>
 								</thead>
 								<tbody>

@@ -1,3 +1,5 @@
 {
-	"cambiarUsuario" : "UPDATE cambio SET fk_idUsuario = 1 WHERE cambio.idCambio = ?"
+	"cambiarUsuario" : "UPDATE cambio SET fk_idUsuario = 1 WHERE cambio.idCambio = ?",
+	"actualizarEstado": "UPDATE cambio SET fk_idEStado = ? WHERE cambio.idCambio = ?",
+	"actualizarPrioridadImpactoCategoria": "UPDATE cambio SET fk_idCategoria = ?, fk_idPrioridad = ?, fk_idImpacto = ? WHERE cambio.idCambio = ?"
 }
