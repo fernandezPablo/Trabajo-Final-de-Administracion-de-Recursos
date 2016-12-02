@@ -304,6 +304,35 @@ class GestionDB{
 			return $sentencia->execute();
 
 		}
+
+
+		public function altaCambio($cambio) {
+
+			$descripcion = $cambio->getDescripcion();
+			$motivo = $cambio->getMotivo();
+			$proposito = $cambio->getProposito();
+			$tiempoEstimado = $cambio->getTiempoEstimado();
+			$nombreSolicitante = $cambio->getNombreSolicitante();
+			$fechaDeVencimiento = $cambio->getFechaDeVencimiento();
+			$equipo = $cambio->getEquipo();
+			$impacto = $cambio->getImpacto()->getIdImpacto();
+			$prioridad = $cambio->getPrioridad()->getIdPrioridad();
+			$estado = $cambio->getEstado()->getIdEstado();
+			$sysExterno = $cambio->getSysExterno()->getIdSysExterno();
+
+			$jsonString = file_get_contents("insert_queries.json",FILE_USE_INCLUDE_PATH);
+			$query = json_decode($jsonString,true)['altaCambio'];
+
+			$sentencia = $this->_link->prepare($query);
+			if($sentencia->bind_param('sssssssssss',$descripcion, $motivo, $proposito, $tiempoEstimado, $nombreSolicitante, $fechaDeVencimiento, $equipo, $impacto, $prioridad, $estado, $sysExterno))
+			{
+				return $sentencia->execute();
+			}
+			else {
+				return false;
+			}
+			
+		}
 	}
 
  ?>
