@@ -50,7 +50,6 @@
 								<tr>
 									<th class="text-center small">FECHA	</th>
 									<th class="text-center small">ESTADO</th>
-
 								</tr>
 							</thead>
 							<tbody>	
