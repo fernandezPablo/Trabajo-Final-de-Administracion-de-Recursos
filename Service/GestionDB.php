@@ -360,7 +360,7 @@ class GestionDB{
 			$query = json_decode($jsonString,true)['altaCambio'];
 
 			$sentencia = $this->_link->prepare($query);
-			if($sentencia->bind_param('sssssssssss',$descripcion, $motivo, $proposito, $tiempoEstimado, $nombreSolicitante, $fechaDeVencimiento, $equipo, $impacto, $prioridad, $estado, $sysExterno))
+			if($sentencia->bind_param('sssssssssss',$descripcion, $motivo, $proposito, $tiempoEstimado, $nombreSolicitante, $fechaDeVencimiento, $equipo, $impacto, $estado, $prioridad , $sysExterno))
 			{
 				return $sentencia->execute();
 			}
