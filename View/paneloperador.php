@@ -216,9 +216,14 @@
 								<div class="row">
 									<br>
 									<div class="col-md-12">
-
-										<button type="submit" name="btnAceptar" class="btn btn-default pull-right buttonMargin">ACEPTAR</button>
-										<button type="submit" id="btnRechazar" name="btnRechazar" class="btn btn-primary pull-right">RECHAZAR</button>
+										<?php if(isset($_GET['edit'])):  ?>
+											<button type="submit" name="btnAceptar" class="btn btn-default pull-right buttonMargin">ACEPTAR</button>
+											<button type="submit" id="btnRechazar" name="btnRechazar" class="btn btn-primary pull-right">RECHAZAR</button>
+										<?php else:
+										 ?>
+										 	<button type="submit" name="btnAceptar" class="btn btn-default pull-right buttonMargin" disabled>ACEPTAR</button>
+											<button type="submit" id="btnRechazar" name="btnRechazar" class="btn btn-primary pull-right" disabled>RECHAZAR</button>
+										<?php endif ?>
 									</div>
 								</div>
 							</form>
@@ -231,7 +236,7 @@
 					<?php
 							if(isset($_POST['idCambio']) && isset($_POST['impacto']) && isset($_POST['prioridad']) && isset($_POST['categoria']) && isset($_POST['estado'])){
 								if($_POST['estado'] == 'aceptado'){
-									if(!OperadorController::aceptarCambio($_POST['idCambio'],$_POST['impacto'],$_POST['prioridad'],$_POST['categoria'])){
+									if(!OperadorController::aceptarCambio($_POST['idCambio'],$_POST['impacto'],$_POST['prioridad'],$_POST['categoria'],$nombreUsuario)){
 										echo "<div class='text-center alert alert-danger'>ERROR NO SE PUDO ACEPTAR EL CAMBIO</div>";
 									}
 									else{

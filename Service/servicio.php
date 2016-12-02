@@ -39,7 +39,7 @@
 
 	/*
 		Se genera un string en formato JSON a partir del array
-		y se envia como salida a través de echo que será recivida
+		y se envia como salida a través de echo que será recibida
 		por el cliente.
 	*/
 	echo json_encode($result);

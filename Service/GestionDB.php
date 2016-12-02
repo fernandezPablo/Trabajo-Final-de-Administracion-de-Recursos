@@ -142,6 +142,7 @@ class GestionDB{
 					while ($fila = $resultado->fetch_assoc()) {
 						$usuario = new Usuario($fila['apellidoNombre'],$fila['nombreUsuario'],$fila['pass'],
 							Perfil::create()->setIdPerfil($fila['fk_idPerfil'])->setNombrePerfil($fila['nombrePerfil']));
+						$usuario->setIdUsuario($fila['idUsuario']);
 					}
 					return $usuario;
 				}
@@ -390,6 +391,14 @@ class GestionDB{
 			$query = json_decode($jsonString,true)['observar'];
 			$sentencia = $this->_link->prepare($query);
 			$sentencia->bind_param('ss',$observacion,$idCambio);
+			return $sentencia->execute();
+		}
+
+		public function agregarUsuarioACambio($idUsuario,$idCambio){
+			$jsonString = file_get_contents("update_queries.json",FILE_USE_INCLUDE_PATH);
+			$query = json_decode($jsonString,true)['agregarUsuario'];
+			$sentencia = $this->_link->prepare($query);
+			$sentencia->bind_param('ss',$idUsuario,$idCambio);
 			return $sentencia->execute();
 		}
 	}

@@ -35,11 +35,15 @@
 			return false;
 		}
 
-		public static function aceptarCambio($idCambio,$idPrioridad,$idImpacto,$idCategoria){
+		public static function aceptarCambio($idCambio,$idPrioridad,$idImpacto,$idCategoria,$nombreUsuario){
 			$db = GestionDB::getInstance();
-			if($db->actualizarImpactoPrioridadCategoria($idCambio,$idPrioridad,$idImpacto,$idCategoria)){
-				if($db->actualizarEstadoCambio(OperadorController::CAMBIOS_ACEPTADOS,$idCambio)){
-					return true;
+			if($usuario = $db->obtenerUsuario($nombreUsuario)){
+				if($db->agregarUsuarioACambio($usuario->getIdUsuario(),$idCambio)){
+					if($db->actualizarImpactoPrioridadCategoria($idCambio,$idPrioridad,$idImpacto,$idCategoria)){
+						if($db->actualizarEstadoCambio(OperadorController::CAMBIOS_ACEPTADOS,$idCambio)){
+							return true;
+						}
+					}
 				}
 			}
 			return false;
