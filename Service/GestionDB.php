@@ -208,21 +208,16 @@ class GestionDB{
 		}
 
 
-		public function obtenerCambiosCerrados($query, $mes) {
+		public function obtenerCambiosInforme($query, $mes, $estado) {
 			$fechaInicial= str_replace("@",$mes, "'2016-@-01'");
 			$fechaFinal = str_replace("@",$mes, "'2016-@-30'");
 
 			$queryArmada1 = str_replace("?", $fechaInicial, $query);
 			$queryArmada2 = str_replace("@", $fechaFinal, $queryArmada1);
-			//echo $queryArmada2;
-
+			$queryFinal = str_replace("%",$estado, $queryArmada2);
 			
-			$sentencia = $this->_link->query($queryArmada2);
-			//$sentencia->bind_param('ss', $fechaInicial, $fechaFinal);
-
-			//if($sentencia->execute()){
+			$sentencia = $this->_link->query($queryFinal);
 			$cambiosCerrados = array();
-				//if($result = $sentencia->get_result()){
 					$index = 0;
 					while($unSeguimiento = $sentencia->fetch_assoc()){	
 						$cambio = Cambio::create()

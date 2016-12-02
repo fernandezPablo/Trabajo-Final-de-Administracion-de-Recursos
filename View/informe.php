@@ -1,5 +1,8 @@
 <?php 
 	require_once "../Controller/AdministradorController.php";
+
+	const ESTADO_CERRADO = "3";
+	const ESTADO_APROBADO = "2";
  ?>
 
 <div class="container-fluid">
@@ -40,24 +43,25 @@
 
 				<?php if(isset($_POST['lista'])) { 
 
-					$arrayCambiosCerrados = AdministradorController::cambiosCerrados($_POST['lista']);
+					$arrayCambiosCerrados = AdministradorController::historial($_POST['lista'], ESTADO_CERRADO);
+					$arrayCambiosAprobados = AdministradorController::historial($_POST['lista'], ESTADO_APROBADO);
 				?>
 
 				<div class="row">
 				  	
-					<p>CAMBIOS CERRADOS:XX </p>
+					<p><b>CAMBIOS CERRADOS:</b> <?php echo count($arrayCambiosCerrados); ?></p>
 
 					<div class="panel panel-default">
 							<table class="table  table-condensed">
 								<thead>
 									<tr>
-										<th>ID</th>
-										<th>FECHA SOLICITUD</th>
-										<th>SOLICITANTE</th>
-										<th>ORIGEN</th>
-										<th>PRIORIDAD</th>
-										<th>IMPACTO</th>
-										<th>FECHA CERRADO</th>
+										<th class="small">ID</th>
+										
+										<th class="small">SOLICITANTE</th>
+										<th class="small">ORIGEN</th>
+										<th class="small">PRIORIDAD</th>
+										<th class="small">IMPACTO</th>
+										<th class="small">FECHA CERRADO</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -65,7 +69,7 @@
 								<?php foreach ($arrayCambiosCerrados as $seguimiento) { ?>
 									<tr>
 										<td><?php echo $seguimiento->getCambio()->getIdCambio();?></td>
-										<td>dato1</td>
+										
 										<td><?php echo $seguimiento->getCambio()->getNombreSolicitante(); ?></td>
 										<td><?php echo $seguimiento->getCambio()->getSysExterno()->getNombreSysExterno();?></td>
 										<td><?php echo $seguimiento->getCambio()->getPrioridad()->getNombrePrioridad(); ?></td>
@@ -79,40 +83,36 @@
 				</div>
 
 				<div class="row">
-					<p>CAMBIOS APROBADOS: XX</p>
+
+					<p><b>CAMBIOS APROBADOS:</b> <?php echo count($arrayCambiosAprobados); ?></p>
 
 					<div class="panel panel-default">
 							<table class="table  table-condensed">
 								<thead>
 									<tr>
-										<th>ID</th>
-										<th>FECHA SOLICITUD</th>
-										<th>SOLICITANTE</th>
-										<th>ORIGEN</th>
-										<th>PRIORIDAD</th>
-										<th>IMPACTO</th>
-										<th>APROBADO POR</th>
+										<th class="small">ID</th>
+										
+										<th class="small">SOLICITANTE</th>
+										<th class="small">ORIGEN</th>
+										<th class="small">PRIORIDAD</th>
+										<th class="small">IMPACTO</th>
+										<th class="small">APROBADO POR</th>
 									</tr>
 								</thead>
 								<tbody>
+									<?php foreach ($arrayCambiosAprobados as $seguimiento) { ?>
 									<tr>
-										<td>dato1</td>
-										<td>dato1</td>
-										<td>dato1</td>
-										<td>dato1</td>
-										<td>dato1</td>
-										<td>dato1</td>
-										<td>dato1</td>
+										<td><?php echo $seguimiento->getCambio()->getIdCambio();?></td>
+										
+										<td><?php echo $seguimiento->getCambio()->getNombreSolicitante(); ?></td>
+										<td><?php echo $seguimiento->getCambio()->getSysExterno()->getNombreSysExterno();?></td>
+										<td><?php echo $seguimiento->getCambio()->getPrioridad()->getNombrePrioridad(); ?></td>
+										<td><?php echo $seguimiento->getCambio()->getImpacto()->getNombreImpacto(); ?></td>
+										<td><?php echo $seguimiento->getFechaCambioEstado(); ?></td>
 									</tr>
-									<tr>
-										<td>dato1</td>
-										<td>dato1</td>
-										<td>dato1</td>
-										<td>dato1</td>
-										<td>dato1</td>
-										<td>dato1</td>
-										<td>dato1</td>
-									</tr>
+
+									<?php } ?>
+									
 							</table>
 					</div>
 				</div>

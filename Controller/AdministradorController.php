@@ -35,12 +35,12 @@ class AdministradorController{
 		return $db->obtenerSeguimiento($query,$idCambio);
 	}
 
-	public static function cambiosCerrados($mes) {
+	public static function historial($mes, $estado) {
 		$db = GestionDB::getInstance();
 		$jsonString = file_get_contents("./../Service/select_queries.json", FILE_USE_INCLUDE_PATH);
-		$query = json_decode($jsonString, true)['cambiosCerrados'];
+		$query = json_decode($jsonString, true)['informe'];
 
-		return $db->obtenerCambiosCerrados($query, $mes);
+		return $db->obtenerCambiosInforme($query, $mes, $estado);
 	}
 }
 
