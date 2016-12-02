@@ -256,11 +256,22 @@ class GestionDB{
 		}
 
 		public function actualizarEstadoCambio($idEstado,$idCambio){
-			$jsonString = file_get_contents("update_queries.json",FILE_USE_INCLUDE_PATH);
-			$query = json_decode($jsonString,true)['actualizarEstado'];
-			$sentencia = $this->_link->prepare($query);
-			$sentencia->bind_param('ss',$idEstado,$idCambio);
-			return $sentencia->execute();
+			$jsonStringUpdate = file_get_contents("update_queries.json",FILE_USE_INCLUDE_PATH);
+			$queryUpdate = json_decode($jsonStringUpdate,true)['actualizarEstado'];
+			$sentenciaUpdate = $this->_link->prepare($queryUpdate);
+			$sentenciaUpdate->bind_param('ss',$idEstado,$idCambio);
+			
+			$jsonStringInsert = file_get_contents("insert_queries.json",FILE_USE_INCLUDE_PATH);
+			$queryInsert = json_decode($jsonStringInsert,true)['nuevoSeguimiento'];
+			$sentenciaInsert = $this->_link->prepare($queryInsert);
+			date_default_timezone_set("America/Argentina/Tucuman");
+			$fecha = date('Y-m-d H:i:s');
+			$sentenciaInsert->bind_param('sss',$fecha,	$idCambio,$idEstado);
+			
+			if($sentenciaUpdate->execute()){
+				return $sentenciaInsert->execute();
+			}
+			return false;
 		}
 
 		public function actualizarImpactoPrioridadCategoria($idCambio,$idImpacto,$idPrioridad,$idCategoria){
@@ -268,6 +279,30 @@ class GestionDB{
 			$query = json_decode($jsonString,true)['actualizarPrioridadImpactoCategoria'];
 			$sentencia = $this->_link->prepare($query);
 			$sentencia->bind_param('ssss',$idCategoria,$idPrioridad,$idImpacto,$idCambio);
+			return $sentencia->execute();
+		}
+
+		public function asignarFechaImplementacionYResponsable($idCambio,$fecha,$responsable){
+			$jsonString = file_get_contents("update_queries.json",FILE_USE_INCLUDE_PATH);
+			$query = json_decode($jsonString,true)['fechaDeImplementacionAsignadoA'];
+			$sentencia = $this->_link->prepare($query);
+			$sentencia->bind_param('sss',$fecha,$responsable,$idCambio);
+			return $sentencia->execute();	
+		}
+
+		public function nuevoSeguimiento($idCambio,$idEstado,$fecha){
+			$jsonString = file_get_contents("insert_queries.json",FILE_USE_INCLUDE_PATH);
+			$query = json_decode($jsonString,true)['nuevoSeguimiento'];
+			$sentencia = $this->_link->prepare($query);
+			$sentencia->bind_param('sss',$fecha,$idCambio,$idEstado);
+			return $sentencia->execute();	
+		}
+
+		public function observar($observacion,$idCambio){
+			$jsonString = file_get_contents("update_queries.json",FILE_USE_INCLUDE_PATH);
+			$query = json_decode($jsonString,true)['observar'];
+			$sentencia = $this->_link->prepare($query);
+			$sentencia->bind_param('ss',$observacion,$idCambio);
 			return $sentencia->execute();
 		}
 	}

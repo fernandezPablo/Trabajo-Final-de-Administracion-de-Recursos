@@ -41,14 +41,14 @@
 						
 						<?php  echo "<p> <b>ORIGEN: </b> ".$cambio[0]->getSysExterno()->getNombreSysExterno()."</p>";?>
 						
-						<?php echo "<p><b>PRIORIDAD:</b>".$cambio[0]->getPrioridad()->getNombrePrioridad()."</p>"; ?>
+						<?php echo "<p><b>PRIORIDAD: </b>".$cambio[0]->getPrioridad()->getNombrePrioridad()."</p>"; ?>
 												
 						<br>
 
 						<table class="table table-hover table-condensed table-bordered ">
 							<thead>
 								<tr>
-									<th class="text-center small"	</th>
+									<th class="text-center small">FECHA</th>
 									<th class="text-center small">ESTADO</th>
 
 								</tr>

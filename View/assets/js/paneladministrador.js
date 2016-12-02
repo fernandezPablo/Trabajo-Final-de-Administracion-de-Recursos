@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	var $title = $("p#title");
-	var $item = $("#"+ $title.attr('name'));
+	var $item = $("li#"+ $title.attr('name'));
 	$item.addClass('active');
 
 	$("p#title_cambios").click(function(){
@@ -13,6 +13,30 @@ $(document).ready(function(){
 		if(!verifyData()){ 
 			return false;
 		}
+	});
+
+	/*$("button#btnAnular").click(function(){
+		$inputHidden = $("input#estado");
+		$inputHidden.val('anulado');	
+	});*/
+
+	$("button#btnAnular").click(function(){
+		$inputHidden = $("input#idCambio");
+		console.log($(this).data('id'));
+		$inputHidden.val($(this).data('id'));	
+	});
+
+	$("button#btnRePlanificar").click(function(){
+		$inputHidden = $("input#estado");
+		$inputHidden.val('aprobado');	
+	});
+
+	$("button#btnPlanificado").click(function(){
+		window.location.href = "panelAdministrador.php";	
+	});
+
+	$("button#btnCerrado").click(function(){
+		window.location.href = "panelAdministrador.php";	
 	});
 });
 
