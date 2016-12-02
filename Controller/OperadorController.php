@@ -2,6 +2,7 @@
 
 	class OperadorController{
 
+		const CAMBIOS_PETICION = 1;
 		const CAMBIOS_ACEPTADOS = 2;
 		const CAMBIOS_RECHAZADOS = 3;
 
@@ -13,7 +14,7 @@
 			$db = GestionDB::getInstance();
 			$jsonString = file_get_contents("./../Service/select_queries.json",FILE_USE_INCLUDE_PATH);
 			$query = json_decode($jsonString,true)['cambios'];
-			return $db->obtenerCambios($query,'peticion');
+			return $db->obtenerCambios($query,OperadorController::CAMBIOS_PETICION);
 		}
 		
 

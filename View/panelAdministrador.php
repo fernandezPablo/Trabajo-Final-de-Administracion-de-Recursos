@@ -54,22 +54,19 @@
 							case 'cambios':
 								include("./tablaCambios.php");
 								break;
+							case 'detalle':
+								include("./detalleCambio.php");
+								break;
 							case 'historial':
-								
 								include("./historial.php");
 								break;
-
 							case 'informe':
 								include("./informe.php");
 								break;
-							
 							case 'nuevousuario':
-						
 								include("./AltaUsuario.php");
 								break;
-								
 							case 'eliminarusuario':
-									
 								include("./BajaUsuario.php");
 								break;
 							case 'logout':
@@ -83,7 +80,6 @@
 					}
 					else{
 						include("./tablaCambios.php");
-						#include("http://localhost/mis_sitios/proyFinal/View/tablaCambios.php?estado=aceptado");
 					}
 					 ?>
 				</div>

@@ -17,6 +17,7 @@
 				break;
 			case 'realizado':
 				echo "<p id='title' name='realizado'>CAMBIOS REALIZADOS</p>";
+				AdministradorController::comprobarPlanificados();
 				$arrayCambios = AdministradorController::getCambios(AdministradorController::CAMBIOS_REALIZADOS);
 				break;
 			case 'cerrado':
@@ -52,16 +53,16 @@
 			<tbody>
 
 <?php 	
-			$arraySize = count($arrayCambios);
-			for($i=0;$i<$arraySize;$i++){
+			foreach($arrayCambios as $cambio){
 				echo "<tr class='fila'>";
-				echo "<td>".$arrayCambios[$i]->getIdCambio()."</td>";
-				echo "<td>".$arrayCambios[$i]->getFechaDeVencimiento()."</td>";
-				echo "<td>".$arrayCambios[$i]->getNombreSolicitante()."</td>";
-				echo "<td>".$arrayCambios[$i]->getSysExterno()->getNombreSysExterno()."</td>";
-				echo "<td>".$arrayCambios[$i]->getCategoria()->getNombreCategoria()."</td>";
-				echo "<td>".$arrayCambios[$i]->getPrioridad()->getNombrePrioridad()."</td>";
-				echo "<td><a href='#myModal' data-toggle='modal'>Detalles</a></td>";		
+				echo "<td>".$cambio->getIdCambio()."</td>";
+				echo "<td>".$cambio->getFechaDeVencimiento()."</td>";
+				echo "<td>".$cambio->getNombreSolicitante()."</td>";
+				echo "<td>".$cambio->getSysExterno()->getNombreSysExterno()."</td>";
+				echo "<td>".$cambio->getCategoria()->getNombreCategoria()."</td>";
+				echo "<td>".$cambio->getPrioridad()->getNombrePrioridad()."</td>";
+				echo "<td><a href='panelAdministrador.php?page=detalle&id=".$cambio->getIdCambio()."'>Detalles</a></td>";		
+				
 				echo "</tr>";
 			}
 			echo "</tbody></table>";
@@ -71,5 +72,5 @@
 		}
 ?>
 <?php 
-	include("./modalDialog.php");
+	#include("./modalDialog.php");
  ?>
