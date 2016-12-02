@@ -13,7 +13,8 @@
 
 			$db = GestionDB::getInstance();
 			$jsonString = file_get_contents("./../Service/select_queries.json",FILE_USE_INCLUDE_PATH);
-			$query = json_decode($jsonString,true)['cambios'];
+			//$query = json_decode($jsonString,true)['cambios'];
+			$query = json_decode($jsonString,true)['peticion'];
 			return $db->obtenerCambios($query,OperadorController::CAMBIOS_PETICION);
 		}
 		

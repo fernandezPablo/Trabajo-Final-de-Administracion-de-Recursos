@@ -57,7 +57,7 @@
 											<th class="text-center">Solicitante</th>
 											<th class="text-center">Vencmiento</th>
 											<th class="text-center">Prioridad</th>
-											<th class="text-center">Categoria</th>
+											<!--<th class="text-center">Categoria</th>-->
 										</tr>
 									</thead>
 									<tbody>
@@ -69,8 +69,8 @@
 											echo "<td>".$cambio->getNombreSolicitante()."</td>";
 											echo "<td>".$cambio->getFechaDeVencimiento()."</td>";
 											echo "<td>".$cambio->getPrioridad()->getNombrePrioridad()."</td>";
-											echo "<td>".$cambio->getCategoria()->getNombreCategoria()."</td>";
-											echo "</tr>";
+											//echo "<td>".$cambio->getCategoria()->getNombreCategoria()."</td>";
+
 										}
 							echo "</tbody></table></div>";
 										?>
@@ -162,8 +162,8 @@
 												echo "<input type='hidden' name='impacto' value='".$cambio->getImpacto()->getIdImpacto()."'>";
 												echo "<p class='text-right'>".$cambio->getPrioridad()->getNombrePrioridad()."</p>";
 												echo "<input type='hidden' name='prioridad' value='".$cambio->getPrioridad()->getIdPrioridad()."'>";
-												echo "<p class='text-right'>".$cambio->getCategoria()->getNombreCategoria()."</p>";
-												echo "<input type='hidden' name='categoria' value='".$cambio->getCategoria()->getIdCategoria()."'>";
+												//echo "<p class='text-right'>".$cambio->getCategoria()->getNombreCategoria()."</p>";
+												//echo "<input type='hidden' name='categoria' value='".$cambio->getCategoria()->getIdCategoria()."'>";
 											}
 											else{
 												$impactos = CommonController::obtenerDatosPara('impacto');
@@ -195,12 +195,13 @@
 												$categorias = CommonController::obtenerDatosPara('categoria');
 												echo "<select name='categoria' id='categoria' class='form-control'>";
 												foreach($categorias as $categoria){
-													if($categoria->getIdCategoria() == $cambio->getCategoria()->getIdCategoria()){
-														echo "<option selected value=".$categoria->getIdCategoria().">";
-													}
-													else{
-														echo "<option value=".$categoria->getIdCategoria().">";
-													}
+													//if($categoria->getIdCategoria() != $cambio->getCategoria()->getIdCategoria()){
+													//	echo "<option selected value=".$categoria->getIdCategoria().">";
+													//}
+													//else{
+													//	echo "<option value=".$categoria->getIdCategoria().">";
+													//}
+													echo "<option value=".$categoria->getIdCategoria().">";
 													echo $categoria->getNombreCategoria();
 													echo "</option>";
 												}

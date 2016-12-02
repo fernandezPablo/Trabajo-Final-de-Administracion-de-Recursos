@@ -65,24 +65,49 @@ class GestionDB{
 			if($sentencia->execute()){
 				if($result = $sentencia->get_result()){
 					$index = 0;
-					while($unCambio = $result->fetch_assoc()){		
-						$cambio = Cambio::create()
-						->setIdCambio($unCambio['idCambio'])
-						->setDescripcion($unCambio['descripcion'])
-						->setMotivo($unCambio['motivo'])
-						->setProposito($unCambio['proposito'])
-						->setTiempoEstimado($unCambio['tiempoEstimado'])
-						->setNombreSolicitante($unCambio['nombreSolicitante'])
-						->setFechaDeVencimiento($unCambio['fechaDeVencimiento'])
-						->setFechaDeImplementacion($unCambio['fechaDeImplementacion'])
-						->setAsignadoA($unCambio['asignadoA'])
-						->setEquipo($unCambio['equipo'])
-						->setObservacion($unCambio['observacion'])
-						->setCategoria(new Categoria($unCambio['fk_idCategoria'],$unCambio['nombreCategoria']))
-						->setImpacto(new Impacto($unCambio['fk_idImpacto'],$unCambio['nombreImpacto']))
-						->setEstado(new Estado($unCambio['fk_idEstado'],$unCambio['nombreEstado']))
-						->setPrioridad(new Prioridad($unCambio['fk_idPrioridad'],$unCambio['nombrePrioridad']))
-						->setSysExterno(new SysExterno($unCambio['fk_idSysExterno'],$unCambio['nombreSysexterno']));
+					while($unCambio = $result->fetch_assoc()){	
+
+						if(isset($unCambio['nombreCategoria'])) {
+
+							$cambio = Cambio::create()
+							->setIdCambio($unCambio['idCambio'])
+							->setDescripcion($unCambio['descripcion'])
+							->setMotivo($unCambio['motivo'])
+							->setProposito($unCambio['proposito'])
+							->setTiempoEstimado($unCambio['tiempoEstimado'])
+							->setNombreSolicitante($unCambio['nombreSolicitante'])
+							->setFechaDeVencimiento($unCambio['fechaDeVencimiento'])
+							->setFechaDeImplementacion($unCambio['fechaDeImplementacion'])
+							->setAsignadoA($unCambio['asignadoA'])
+							->setEquipo($unCambio['equipo'])
+							->setObservacion($unCambio['observacion'])
+							->setCategoria(new Categoria($unCambio['fk_idCategoria'],$unCambio['nombreCategoria']))
+							->setImpacto(new Impacto($unCambio['fk_idImpacto'],$unCambio['nombreImpacto']))
+							->setEstado(new Estado($unCambio['fk_idEstado'],$unCambio['nombreEstado']))
+							->setPrioridad(new Prioridad($unCambio['fk_idPrioridad'],$unCambio['nombrePrioridad']))
+							->setSysExterno(new SysExterno($unCambio['fk_idSysExterno'],$unCambio['nombreSysexterno']));
+						}	
+						else
+						{
+							$cambio = Cambio::create()
+							->setIdCambio($unCambio['idCambio'])
+							->setDescripcion($unCambio['descripcion'])
+							->setMotivo($unCambio['motivo'])
+							->setProposito($unCambio['proposito'])
+							->setTiempoEstimado($unCambio['tiempoEstimado'])
+							->setNombreSolicitante($unCambio['nombreSolicitante'])
+							->setFechaDeVencimiento($unCambio['fechaDeVencimiento'])
+							->setFechaDeImplementacion($unCambio['fechaDeImplementacion'])
+							->setAsignadoA($unCambio['asignadoA'])
+							->setEquipo($unCambio['equipo'])
+							->setObservacion($unCambio['observacion'])
+							->setImpacto(new Impacto($unCambio['fk_idImpacto'],$unCambio['nombreImpacto']))
+							->setEstado(new Estado($unCambio['fk_idEstado'],$unCambio['nombreEstado']))
+							->setPrioridad(new Prioridad($unCambio['fk_idPrioridad'],$unCambio['nombrePrioridad']))
+							->setSysExterno(new SysExterno($unCambio['fk_idSysExterno'],$unCambio['nombreSysexterno']));
+						}
+
+
 
 						$arrayCambios[$index] = $cambio;
 						$index++;

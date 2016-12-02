@@ -11,5 +11,6 @@
 	"perfil": "SELECT * FROM perfil",
 	"impacto": "SELECT * FROM impacto",
 	"categoria": "SELECT * FROM categoria",
-	"prioridad": "SELECT * FROM prioridad"
+	"prioridad": "SELECT * FROM prioridad",
+	"peticion": "SELECT cambio.*, estado.nombre AS nombreEstado, prioridad.nombre AS nombrePrioridad, impacto.nombre AS nombreImpacto, sysexterno.nombre AS nombreSysexterno FROM cambio INNER JOIN estado ON cambio.fk_idEstado = estado.idEstado INNER JOIN prioridad ON cambio.fk_idPrioridad = prioridad.idPrioridad INNER JOIN impacto ON cambio.fk_idImpacto = impacto.idImpacto INNER JOIN sysexterno ON cambio.fk_idSysExterno = sysexterno.idSysExterno WHERE cambio.fk_idEstado = ?"
 }
